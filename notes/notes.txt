@@ -1,0 +1,28 @@
+PAA Catalog Notes
+
+1. Downloadable html file that is going to be sent via email
+2. image hosting?
+3. Video embedding through youtube or vimeo
+4. Admin needs Wysiwyg
+5. Sections - Operations: Add, Hide
+      description
+      add products
+6. Products
+      creates cards under section
+      add products, delete products
+      edit product description
+      add images
+      set main image
+7. Button on admin to download catalog
+8. Image upload through admin? Need access to server that stores the wordpress site.
+9. talk to IT at PAA about setting up local VPN linux box.
+
+
+Meeting bullets:
+
+* Image hosting
+* Setting up linux server in office on vpn
+* accessing the admin
+* Video hosting
+* Preset admin UI get input.
+* User login for admin?

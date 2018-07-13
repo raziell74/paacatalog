@@ -1,0 +1,45 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.6.35
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+      - datavolume:/tmp
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: dev
+      MYSQL_DATABASE: sample
+      MYSQL_USER: root
+      MYSQL_PASSWORD: dev
+  email:
+    image: rylwin/mailcatcher
+    ports:
+      - "1080:1080"
+  web:
+    build: .
+    command: apache2-foreground
+    depends_on:
+      - db
+      - email
+    links:
+      - db
+      - email
+    ports:
+      - "80:80"
+      - "8378:8378"
+    volumes:
+      - ./:/var/www/app
+      - datavolume:/tmp
+    environment:
+      MYSQL_ADDRESS: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: sample
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: dev
+      SMTP_HOST: email
+      SMTP_PORT: 1025
+      SMTP_SECURITY: ""
+      APP_ROOT: /var/www/app
+volumes:
+  datavolume: {}
