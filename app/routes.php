@@ -11,6 +11,7 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 $app->get('/sample', function (Request $request, Response $response, array $args) {
     $sampleHtml = file_get_contents("catalog_sample.html");
     $response->getBody()->write($sampleHtml);
+    $this->logger->addInfo('Sample Viewed');
 
     return $response;
 });
