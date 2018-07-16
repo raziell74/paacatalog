@@ -29,7 +29,7 @@ services:
       - "80:80"
       - "8378:8378"
     volumes:
-      - ./:/var/www/app
+      - ./:/var/www/html
       - datavolume:/tmp
     environment:
       MYSQL_ADDRESS: db
@@ -40,6 +40,6 @@ services:
       SMTP_HOST: email
       SMTP_PORT: 1025
       SMTP_SECURITY: ""
-      APP_ROOT: /var/www/app
+      APP_ROOT: /var/www/html
 volumes:
   datavolume: {}
