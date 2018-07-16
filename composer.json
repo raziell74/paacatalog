@@ -1,5 +1,6 @@
 {
     "require": {
-        "davedevelopment/phpmig": "^1.5"
+        "davedevelopment/phpmig": "^1.5",
+        "slim/slim": "^3.0"
     }
 }
