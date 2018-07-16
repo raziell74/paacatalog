@@ -3,4 +3,4 @@
 $config['displayErrorDetails'] = true;
 $config['addContentLengthHeader'] = false;
 
-require './db/dbconfig.php';
+require 'db/dbconfig.php';

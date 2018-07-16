@@ -8,7 +8,7 @@ use Pimple\Container;
 $container = new Container();
 
 $container['db'] = function () {
-    include "./db/dbconfig.php";
+    include "db/dbconfig.php";
     $db = $config['db'];
     $pdo = new PDO(
         'mysql:host=' . $db['host'] . ';dbname=' . $db['dbname'],
@@ -24,6 +24,6 @@ $container['phpmig.adapter'] = function ($c) {
 };
 
 $container['phpmig.migrations_path'] = __DIR__ . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'migrations';
-$container['phpmig.migrations_template_path'] = __DIR__ . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'migrations' . DIRECTORY_SEPARATOR . "migration_template.tmpl";
+$container['phpmig.migrations_template_path'] = __DIR__ . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . "migration.tmpl";
 
 return $container;
