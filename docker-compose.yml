@@ -9,7 +9,7 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: dev
-      MYSQL_DATABASE: sample
+      MYSQL_DATABASE: paa_catalog
       MYSQL_USER: root
       MYSQL_PASSWORD: dev
   email:
@@ -34,7 +34,7 @@ services:
     environment:
       MYSQL_ADDRESS: db
       MYSQL_PORT: 3306
-      MYSQL_DATABASE: sample
+      MYSQL_DATABASE: paa_catalog
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: dev
       SMTP_HOST: email
