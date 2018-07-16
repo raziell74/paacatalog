@@ -1,0 +1,22 @@
+<?php
+
+use Phpmig\Migration\Migration;
+
+class %s extends Migration
+{
+    public function __contruct() {
+        parent::__construct();
+        $container = $this->getContainer();
+        $this->db = $container['db'];
+    }
+
+    public function up() {
+        //$sql = "ALTER TABLE `sometable` ADD COLUMN `somecolumn` INT(10) UNSIGNED NULL";
+        //$this->db->query(sql);
+    }
+
+    public function down() {
+        //$sql = "ALTER TABLE `sometable` DROP COLUMN `somecolumn`";
+        //$this->db->query(sql);
+    }
+}
