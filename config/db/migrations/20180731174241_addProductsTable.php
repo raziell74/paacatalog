@@ -17,6 +17,7 @@ class AddProductsTable extends Migration {
                                 `overview` TEXT NULL DEFAULT NULL,
                                 `specs` TEXT NULL DEFAULT NULL,
                                 `tech` TEXT NULL DEFAULT NULL,
+                                `main_image` VARCHAR(255) NOT NULL DEFAULT '/images/Blue-Robot.png',
                                 `hidden` TINYINT(1) DEFAULT 0,
                                 PRIMARY KEY (`id`),
                                 FOREIGN KEY (section_id) REFERENCES sections(id)
