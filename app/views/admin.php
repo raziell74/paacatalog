@@ -21,11 +21,12 @@
     <div class="navbar-fixed">
         <nav id="nav_bar" class="blue darken-4" role="navigation">
             <div class="nav-wrapper container">
-                <a id="logo-container" href="#" class="brand-logo"><img style="width: 46%;" src="images/PAA_Logo_White@2x.png" alt="Unsplashed background img 1"></a>
+                <a id="logo-container" href="#" class="brand-logo"><img style="width: 46%;" src="/images/PAA_Logo_White@2x.png" alt="Unsplashed background img 1"></a>
                 <ul class="right hide-on-med-and-down">
                     <?php foreach($sections as $section) { ?>
                         <li><a href="#<?=$section->cssId?>"><?=$section->name?></a></li>
                     <?php } ?>
+                    <li><a href="/download" target="_blank" class="waves-effect waves-light btn"><i class="material-icons right">file_download</i>Download Catalog</a></li>
                 </ul>
 
                 <ul id="nav-mobile" class="sidenav">
@@ -44,7 +45,7 @@
                 <h1 class="header center white-text text-lighten-2">Peak Analysis & Automation Catalog</h1>
             </div>
         </div>
-        <div class="parallax"><img src="images/overlord-slider.jpg"></div>
+        <div class="parallax"><img src="/images/overlord-slider.jpg"></div>
     </div>
 
     <div class="container">
@@ -161,7 +162,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="col s12 m6">
-                                                    <img src="images/Green-Bot.png" class="responsive-img">
+                                                    <img src="<?=$product->main_image?>" class="responsive-img">
                                                 </div>
                                                 <div class="col s12 m6 modal-tabs">
                                                     <div id="<?=$product->cssId?>-overview" class="col s12">
