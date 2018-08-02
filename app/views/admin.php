@@ -94,21 +94,21 @@
                         <div class="container">
                             <div class="row center">
                                 <div class="input-field col s6">
-                                    <input placeholder="Placeholder" id="<?=$section->cssId?>-name" name="name" type="text" class="validate" value="<?=$section->name?>">
+                                    <input placeholder="Section Name" id="<?=$section->cssId?>-name" name="name" type="text" class="validate" value="<?=$section->name?>">
                                     <label for="<?=$section->cssId?>-name">Section Name</label>
                                 </div>
                             </div>
 
                             <div class="row center">
                                 <div class="input-field col s6">
-                                    <input placeholder="Placeholder" id="<?=$section->cssId?>-short_desc" name="short_desc" type="text" class="validate" value="<?=$section->short_desc?>">
+                                    <input placeholder="Short Description" id="<?=$section->cssId?>-short_desc" name="short_desc" type="text" class="validate" value="<?=$section->short_desc?>">
                                     <label for="<?=$section->cssId?>-short_desc">Short Description</label>
                                 </div>
                             </div>
 
                             <div class="row center">
                                 <div class="input-field col s6">
-                                    <input placeholder="Placeholder" id="<?=$section->cssId?>-background_image" name="background_image" type="text" class="validate" value="<?=$section->background_image?>">
+                                    <input placeholder="Background Image Url" id="<?=$section->cssId?>-background_image" name="background_image" type="text" class="validate" value="<?=$section->background_image?>">
                                     <label for="<?=$section->cssId?>-background_image">Header Background Image</label>
                                 </div>
                             </div>
@@ -233,6 +233,76 @@
                                 </div>
                             </div>
                         <? } ?>
+
+                        <div id="<?=$product->cssId?>" class="col s12 m4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <div class="valign-wrapper" style="height: 404px;">
+                                        <div class="container">
+                                            <div class="row center">
+                                                <a class="btn-floating btn-large waves-effect waves-light pulse blue product-edit modal-trigger" href="#new-product-modal"><i class="material-icons">add</i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Add Product</span>
+                                </div>
+                                <div class="card-action">
+                                    <a style="opacity:0;" class="btn-floating btn-large waves-effect waves-light pulse blue product-edit modal-trigger" href="#new-product-modal"><i class="material-icons">add</i></a>
+                                    
+                                    <!-- Add Modal Structure -->
+                                    <div id="new-product-modal" class="modal">
+                                        <div class="modal-content">
+                                            <form action="/add/product" method="post" id="new-product-add">
+                                                <input type="hidden" name="section_id" value="<?=$section->id?>">
+                                                <div class="input-field col s6">
+                                                    <input placeholder="Placeholder" id="new-product-name" name="name" type="text" class="validate" required>
+                                                    <label for="new-product-name">Product Name</label>
+                                                </div>
+                                                <div class="row right">
+                                                    <button type="submit" name="action" class="btn-large waves-effect waves-light blue section-save"><i class="material-icons right">send</i>Save</button>
+                                                    <a href="#!" class="modal-close btn-large waves-effect waves-light red section-cancel-edit"><i class="material-icons right">cancel</i>Cancel</a>
+                                                </div>
+                                                <div class="col s12">
+                                                    <ul class="tabs">
+                                                        <li class="tab col s3"><a class="active" href="#new-product-overview">Overview</a></li>
+                                                        <li class="tab col s3"><a href="#new-product-specifications">Specifications</a></li>
+                                                        <li class="tab col s3"><a href="#new-product-technical">Tech</a></li>
+                                                        <li class="tab col s3"><a href="#new-product-images">Images</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col s12 modal-tabs">
+                                                    <div id="new-product-overview" class="col s12">
+                                                        <div class="input-field col s12 product-overview">
+                                                            <textarea id="new-product-overview" name="overview"></textarea>
+                                                            <label for="new-product-overview">Overview</label>
+                                                        </div>
+                                                    </div>
+                                                    <div id="new-product-specifications" class="col s12">
+                                                        <div class="input-field col s12 product-specs">
+                                                            <textarea id="new-product-specs" name="specs"></textarea>
+                                                            <label for="new-product-specs">Specifications</label>
+                                                        </div>
+                                                    </div>
+                                                    <div id="new-product-technical" class="col s12">
+                                                        <div class="input-field col s12 product-tech">
+                                                            <textarea id="new-product-tech" name="specs"></textarea>
+                                                            <label for="new-product-tech">Tech</label>
+                                                        </div>
+                                                    </div>
+                                                    <div id="new-product-images" class="col s12">
+                                                        <div class="input-field col s6">
+                                                            <input placeholder="Image Url" id="new-product-main_image" name="main_image" type="text" class="validate" required>
+                                                            <label for="new-product-main_image">Main Image URL</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -258,21 +328,21 @@
                     <div class="container">
                         <div class="row center">
                             <div class="input-field col s6">
-                                <input placeholder="Placeholder" id=new-section-name" name="name" type="text" class="validate" require>
+                                <input placeholder="Section Name" id=new-section-name" name="name" type="text" class="validate" require>
                                 <label for="new-section-name">Section Name</label>
                             </div>
                         </div>
 
                         <div class="row center">
                             <div class="input-field col s6">
-                                <input placeholder="Placeholder" id="new-section-short_desc" name="short_desc" type="text" class="validate">
+                                <input placeholder="Short Description" id="new-section-short_desc" name="short_desc" type="text" class="validate">
                                 <label for="new-section-short_desc">Short Description</label>
                             </div>
                         </div>
 
                         <div class="row center">
                             <div class="input-field col s6">
-                                <input placeholder="Placeholder" id="new-section-background_image" name="background_image" type="text" class="validate">
+                                <input placeholder="Header Background Image Url" id="new-section-background_image" name="background_image" type="text" class="validate">
                                 <label for="new-section-background_image">Header Background Image</label>
                             </div>
                         </div>

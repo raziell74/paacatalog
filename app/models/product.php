@@ -68,8 +68,9 @@ class product extends Model {
     public function create() {
         $sql = "
             INSERT INTO
-                products (`name`, `overview`, `specs`, `tech`, `main_image`)
+                products (`section_id`, `name`, `overview`, `specs`, `tech`, `main_image`)
             VALUES (
+                :section_id,
                 :name,
                 :overview,
                 :specs,
@@ -78,6 +79,7 @@ class product extends Model {
             );
         ";
         $statement = $this->db->prepare($sql);
+        $statement->bindParam(':section_id', $this->get('section_id'));
         $statement->bindParam(':name', $this->get('name'));
         $statement->bindParam(':overview', $this->get('overview'));
         $statement->bindParam(':specs', $this->get('specs'));
