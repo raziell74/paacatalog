@@ -1,5 +1,14 @@
 <?php
+use Slim\Views\PhpRenderer;
+
 $container = $app->getContainer();
+
+/**
+ * Php Template Renderer
+ * 
+ * @usage	$this->view->render($response, "/hello.php", $args);
+ */
+$container['view'] = new PhpRenderer(__DIR__ . "/views");
 
 /**
  * MonoLog Logging service
