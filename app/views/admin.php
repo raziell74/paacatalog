@@ -168,7 +168,7 @@
                                                         <?=$product->overview?>
                                                     </div>
                                                     <div id="<?=$product->cssId?>-specifications" class="col s12">
-                                                        <?=$product->specs?>
+                                                        <?=$product->get('specs')?>
                                                     </div>
                                                     <div id="<?=$product->cssId?>-technical" class="col s12">
                                                         <?=$product->tech?>
@@ -206,13 +206,13 @@
                                                         </div>
                                                         <div id="<?=$product->cssId?>-specifications-edit" class="col s12">
                                                             <div class="input-field col s12 product-specs">
-                                                                <textarea id="<?=$product->cssId?>-specs" name="specs"><?=$product->specs?></textarea>
+                                                                <textarea id="<?=$product->cssId?>-specs" name="specs"><?=$product->get('specs')?></textarea>
                                                                 <label for="<?=$product->cssId?>-specs">Specifications</label>
                                                             </div>
                                                         </div>
                                                         <div id="<?=$product->cssId?>-technical-edit" class="col s12">
                                                             <div class="input-field col s12 product-tech">
-                                                                <textarea id="<?=$product->cssId?>-tech" name="specs"><?=$product->tech?></textarea>
+                                                                <textarea id="<?=$product->cssId?>-tech" name="tech"><?=$product->tech?></textarea>
                                                                 <label for="<?=$product->cssId?>-tech">Tech</label>
                                                             </div>
                                                         </div>
@@ -285,7 +285,7 @@
                                                     </div>
                                                     <div id="new-product-technical" class="col s12">
                                                         <div class="input-field col s12 product-tech">
-                                                            <textarea id="new-product-tech" name="specs"></textarea>
+                                                            <textarea id="new-product-tech" name="tech"></textarea>
                                                             <label for="new-product-tech">Tech</label>
                                                         </div>
                                                     </div>
