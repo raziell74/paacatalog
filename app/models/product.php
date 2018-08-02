@@ -49,7 +49,8 @@ class product extends Model {
                 name = :name,
                 overview = :overview,
                 specs = :specs,
-                tech = :tech
+                tech = :tech,
+                main_image = :main_image
             WHERE
                 id = :id
         ";
@@ -59,6 +60,7 @@ class product extends Model {
         $statement->bindParam(':overview', $this->get('overview'));
         $statement->bindParam(':specs', $this->get('specs'));
         $statement->bindParam(':tech', $this->get('tech'));
+        $statement->bindParam(':main_image', $this->get('main_image'));
         $statement->execute();
         return $this;
     }
@@ -66,12 +68,13 @@ class product extends Model {
     public function create() {
         $sql = "
             INSERT INTO
-                products (`name`, `overview`, `specs`, `tech`)
+                products (`name`, `overview`, `specs`, `tech`, `main_image`)
             VALUES (
                 :name,
                 :overview,
                 :specs,
-                :tech
+                :tech,
+                :main_image
             );
         ";
         $statement = $this->db->prepare($sql);
@@ -79,6 +82,7 @@ class product extends Model {
         $statement->bindParam(':overview', $this->get('overview'));
         $statement->bindParam(':specs', $this->get('specs'));
         $statement->bindParam(':tech', $this->get('tech'));
+        $statement->bindParam(':main_image', $this->get('main_image'));
         $statement->execute();
         return $this;
     }

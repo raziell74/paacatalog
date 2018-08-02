@@ -141,7 +141,7 @@
                             <div id="<?=$product->cssId?>" class="col s12 m4">
                                 <div class="card">
                                     <div class="card-image">
-                                        <img src="images/Green-Bot.png">
+                                        <img src="<?=$product->main_image?>">
                                         <span class="card-title"><?=$product->name?></span>
                                     </div>
                                     <div class="card-action">
@@ -217,7 +217,13 @@
                                                             </div>
                                                         </div>
                                                         <div id="<?=$product->cssId?>-images-edit" class="col s12">
-                                                            <img src="images/Green-Bot.png" class="responsive-img">
+                                                            <div class="col s12 m6">
+                                                                <img src="images/Green-Bot.png" class="responsive-img">
+                                                            </div>
+                                                            <div class="input-field col s6">
+                                                                <input placeholder="Placeholder" id="<?=$product->cssId?>-main_image" name="main_image" type="text" class="validate" value="<?=$product->main_image?>">
+                                                                <label for="<?=$section->cssId?>-main_image">Main Image URL</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </form>
