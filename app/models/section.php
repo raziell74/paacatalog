@@ -47,7 +47,6 @@ class section extends Model {
     }
 
     public function update() {
-        $bindable_data = ['id', 'name', 'short_desc', 'description', 'background_image'];
         $sql = "
             UPDATE
                 sections
@@ -70,7 +69,6 @@ class section extends Model {
     }
 
     public function create() {
-        $bindable_data = ['name', 'short_desc', 'description', 'background_image'];
         $sql = "
             INSERT INTO
                 sections (`name`, `short_desc`, `description`, `background_image`)

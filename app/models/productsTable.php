@@ -23,7 +23,7 @@ class productsTable extends Model {
         return $products;
     }
 
-    public function getProduct($product_id) {
+    public function get($product_id) {
         $statement = $this->db->prepare("
             SELECT
                 *
@@ -36,6 +36,12 @@ class productsTable extends Model {
         $statement->execute();
         $products = $this->fetchAsProductObjs($statement->fetchAll());
         return $products[0] ?? null;
+    }
+
+    public function addProduct($data) {
+        $product = new product($this->container, $data);
+        $product->create();
+        return $product;
     }
 
     private function fetchAsProductObjs($raw_products) {

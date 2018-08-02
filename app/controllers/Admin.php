@@ -36,4 +36,29 @@ class Admin  extends controller {
         $sectionsTable->addSection($data);
         return $response->withRedirect('/#' . $section->cssId);
     }
+
+    public function deleteProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+        $productsTable = new productsTable($this->container);
+        $product = $sectionsTable->get($args['id']);
+        $product->delete();
+        return $response->withRedirect('/');
+    }
+
+    public function updateProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+        $productsTable = new productsTable($this->container);
+        $product = $sectionsTable->get($args['id']);
+        $data = $request->getParsedBody();
+        foreach($data as $key => $value) {
+            $product->set($key, $value);
+        }
+        $product->update();
+        return $response->withRedirect('/#' . $product->cssId);
+    }
+
+    public function addProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+        $productsTable = new productsTable($this->container);
+        $data = $request->getParsedBody();
+        $productsTable->addProduct($data);
+        return $response->withRedirect('/#' . $product->cssId);
+    }
 }

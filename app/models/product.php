@@ -41,6 +41,48 @@ class product extends Model {
         return true;
     }
 
+    public function update() {
+        $sql = "
+            UPDATE
+                products
+            SET
+                name = :name,
+                overview = :overview,
+                specs = :specs,
+                tech = :tech
+            WHERE
+                id = :id
+        ";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':id', $this->get('id'));
+        $statement->bindParam(':name', $this->get('name'));
+        $statement->bindParam(':overview', $this->get('overview'));
+        $statement->bindParam(':specs', $this->get('specs'));
+        $statement->bindParam(':tech', $this->get('tech'));
+        $statement->execute();
+        return $this;
+    }
+
+    public function create() {
+        $sql = "
+            INSERT INTO
+                products (`name`, `overview`, `specs`, `tech`)
+            VALUES (
+                :name,
+                :overview,
+                :specs,
+                :tech
+            );
+        ";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':name', $this->get('name'));
+        $statement->bindParam(':overview', $this->get('overview'));
+        $statement->bindParam(':specs', $this->get('specs'));
+        $statement->bindParam(':tech', $this->get('tech'));
+        $statement->execute();
+        return $this;
+    }
+
     private function setCssId() {
         $cssId = $this->get('name') . '-' . $this->get('id');
         $cssId = strtolower($cssId);
