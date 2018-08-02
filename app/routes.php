@@ -16,4 +16,4 @@ $app->post('/add/product', Controllers\Admin::class . ':addProduct');
 
 $app->get('/sample', Controllers\Preview::class . ':index');
 
-$app->get('/catalog.html', Controllers\Admin::class . ':download');
+$app->get('/download', Controllers\Admin::class . ':download');

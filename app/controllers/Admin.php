@@ -23,7 +23,7 @@ class Admin  extends controller {
         $body = $view->getBody();
         file_put_contents(__DIR__ . "/../../public/downloads/catalog.html", $body);
         //$newResponse = $response->withAddedHeader('Content-disposition', 'attachment; filename=/downloads/catalog.html');
-        return $newResponse;
+        return $response;
     }
 
     public function deleteSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
