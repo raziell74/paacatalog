@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 
-class section extends Model {
+class product extends Model {
     private $data;
 
     protected function init($data) {
@@ -13,7 +13,6 @@ class section extends Model {
     }
 
     public function __get($name) {
-        if($name == 'products') $this->hasProducts();
         if (array_key_exists($name, $this->data)) {
             return $this->data[$name];
         }
@@ -28,20 +27,12 @@ class section extends Model {
     }
 
     public function get($key) {
-        if($key == 'products') $this->hasProducts();
         return $this->data[$key] ?? null;
     }
 
     public function set($key, $value) {
         $this->data[$key] = $value;
         return $this;
-    }
-
-    public function hasProducts() {
-        if(array_key_exists('products', $this->data)) return $this;
-        $productsTable = new productsTable($this->container);
-        $products = $productsTable->getBySection($this->get('id'));
-        return $this->set('products', $products);
     }
 
     private function setCssId() {

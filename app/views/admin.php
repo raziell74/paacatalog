@@ -77,50 +77,51 @@
             </div>
         <?php } ?>
 
-        <?php if($section->getProducts()) { ?>
-            <div id="robots" class="container">
+        <?php if($section->hasProducts()) { ?>
+            <div class="container">
                 <div class="section">
-                    <div id="KX660" class="col s12 m4">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="images/Green-Bot.png">
-                                <span class="card-title">KX660</span>
-                            </div>
-                            <div class="card-action">
-                                <a class="btn-large waves-effect waves-light blue darken-4 modal-trigger" href="#KX660-modal">Check It Out</a>
+                    <div class="row">
+                        <?php foreach($section->products as $product) { ?>
+                            <div id="<?=$product->cssId?>" class="col s12 m4">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="images/Green-Bot.png">
+                                        <span class="card-title"><?=$product->name?></span>
+                                    </div>
+                                    <div class="card-action">
+                                        <a class="btn-large waves-effect waves-light blue darken-4 modal-trigger" href="#<?=$product->cssId?>-modal">Check It Out</a>
 
-                                <!-- Modal Structure -->
-                                <div id="KX660-modal" class="modal">
-                                    <div class="modal-content">
-                                        <h4>KX660</h4>
-                                        <div class="col s12">
-                                            <ul class="tabs">
-                                                <li class="tab col s4"><a class="active" href="#KX660-overview">Overview</a></li>
-                                                <li class="tab col s4"><a href="#KX660-specifications">Specifications</a></li>
-                                                <li class="tab col s4"><a href="#KX660-technical">Tech</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col s12 m6">
-                                            <img src="images/Green-Bot.png" class="responsive-img">
-                                        </div>
-                                        <div class="tabs col s12 m6 modal-tabs">
-                                            <div id="KX660-overview" class="col s12">
-                                                <h5>Overview</h5>
-                                                <p>Abora illitasi dolores tiaessinciis quamenis earibus idemolorro essi delent. Od et auda excerciam, ut qui digent.</p>
-                                            </div>
-                                            <div id="KX660-specifications" class="col s12">
-                                                <h5>Specs</h5>
-                                                <p>Abora illitasi dolores tiaessinciis quamenis earibus idemolorro essi delent. Od et auda excerciam, ut qui digent.</p>
-                                            </div>
-                                            <div id="KX660-technical" class="col s12">
-                                                <h5>Tech</h5>
-                                                <p>Abora illitasi dolores tiaessinciis quamenis earibus idemolorro essi delent. Od et auda excerciam, ut qui digent.</p>
+                                        <!-- Modal Structure -->
+                                        <div id="<?=$product->cssId?>-modal" class="modal">
+                                            <div class="modal-content">
+                                                <h4><?=$product->name?></h4>
+                                                <div class="col s12">
+                                                    <ul class="tabs">
+                                                        <li class="tab col s4"><a class="active" href="#<?=$product->cssId?>-overview">Overview</a></li>
+                                                        <li class="tab col s4"><a href="#<?=$product->cssId?>-specifications">Specifications</a></li>
+                                                        <li class="tab col s4"><a href="#<?=$product->cssId?>-technical">Tech</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col s12 m6">
+                                                    <img src="images/Green-Bot.png" class="responsive-img">
+                                                </div>
+                                                <div class="tabs col s12 m6 modal-tabs">
+                                                    <div id="<?=$product->cssId?>-overview" class="col s12">
+                                                        <?=$product->overview?>
+                                                    </div>
+                                                    <div id="<?=$product->cssId?>-specifications" class="col s12">
+                                                        <?=$product->specs?>
+                                                    </div>
+                                                    <div id="<?=$product->cssId?>-technical" class="col s12">
+                                                        <?=$product->tech?>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <? } ?>
                     </div>
                 </div>
             </div>
