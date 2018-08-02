@@ -74,6 +74,12 @@ footer.page-footer {
   right: 15px;
 }
 
+.new .crud-buttons {
+  position: relative;
+  bottom: 0px;
+  right: 0px;
+}
+
 .crud-buttons a {
   margin-right: 10px;
 }

@@ -46,7 +46,7 @@ class section extends Model {
         return true;
     }
 
-    public function save() {
+    public function update() {
         $bindable_data = ['id', 'name', 'short_desc', 'description', 'background_image'];
         $sql = "
             UPDATE
@@ -61,6 +61,27 @@ class section extends Model {
         ";
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':id', $this->get('id'));
+        $statement->bindParam(':name', $this->get('name'));
+        $statement->bindParam(':short_desc', $this->get('short_desc'));
+        $statement->bindParam(':description', $this->get('description'));
+        $statement->bindParam(':background_image', $this->get('background_image'));
+        $statement->execute();
+        return $this;
+    }
+
+    public function create() {
+        $bindable_data = ['name', 'short_desc', 'description', 'background_image'];
+        $sql = "
+            INSERT INTO
+                sections (`name`, `short_desc`, `description`, `background_image`)
+            VALUES (
+                :name,
+                :short_desc,
+                :description,
+                :background_image
+            );
+        ";
+        $statement = $this->db->prepare($sql);
         $statement->bindParam(':name', $this->get('name'));
         $statement->bindParam(':short_desc', $this->get('short_desc'));
         $statement->bindParam(':description', $this->get('description'));

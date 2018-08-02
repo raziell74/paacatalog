@@ -12,10 +12,6 @@ class Admin  extends controller {
         return $this->view->render($response, "/admin.php", $vars);
     }
 
-    public function post(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
-       
-    }
-
     public function deleteSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
         $sectionsTable = new sectionsTable($this->container);
         $section = $sectionsTable->get($args['id']);
@@ -30,11 +26,14 @@ class Admin  extends controller {
         foreach($data as $key => $value) {
             $section->set($key, $value);
         }
-        $section->save();
+        $section->update();
         return $response->withRedirect('/#' . $section->cssId);
     }
 
     public function addSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
-        return $response->withRedirect('/');
+        $sectionsTable = new sectionsTable($this->container);
+        $data = $request->getParsedBody();
+        $sectionsTable->addSection($data);
+        return $response->withRedirect('/#' . $section->cssId);
     }
 }

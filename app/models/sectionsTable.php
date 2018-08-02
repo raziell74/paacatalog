@@ -23,6 +23,12 @@ class sectionsTable extends Model {
         return $sections[0] ?? null;
     }
 
+    public function addSection($data) {
+        $section = new section($this->container, $data);
+        $section->create();
+        return $section;
+    }
+
     private function fetchAsSectionObjs($raw_sections) {
         $sections = [];
         foreach($raw_sections as $section_data) {

@@ -72,7 +72,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="parallax"><img class="section-background-image" src="<?=$section->background_image?>" alt="Unsplashed background img 2"></div>
+                    <?php if($section->background_image) { ?>
+                        <div class="parallax"><img class="section-background-image" src="<?=$section->background_image?>" alt="Unsplashed background img 2"></div>
+                    <?php } ?>
                 </div>
 
                 <div class="container">
@@ -181,6 +183,64 @@
             </div>
         <?php } ?>
     <?php } ?>
+
+    <div class="section-content">
+        <div id="new-section" class="preview-display new">
+            <div class="parallax-container valign-wrapper orange-text z-depth-5">
+                <div class="section no-pad-bot">
+                    <div class="container">
+                        <div class="center crud-buttons">
+                            <h1 class="header center section-name">Add New Section <button data-section="new-section" class="btn-floating btn-large waves-effect waves-light pulse blue section-edit"><i class="material-icons right">add</i></button></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form action="/add/section" method="post" id="new-section-edit" class="z-depth-5 hide">
+            <div class="parallax-container valign-wrapper orange-text">
+                <div class="section no-pad-bot">
+                    <div class="container">
+                        <div class="row center">
+                            <div class="input-field col s6">
+                                <input placeholder="Placeholder" id=new-section-name" name="name" type="text" class="validate" require>
+                                <label for="new-section-name">Section Name</label>
+                            </div>
+                        </div>
+
+                        <div class="row center">
+                            <div class="input-field col s6">
+                                <input placeholder="Placeholder" id="new-section-short_desc" name="short_desc" type="text" class="validate">
+                                <label for="new-section-short_desc">Short Description</label>
+                            </div>
+                        </div>
+
+                        <div class="row center">
+                            <div class="input-field col s6">
+                                <input placeholder="Placeholder" id="new-section-background_image" name="background_image" type="text" class="validate">
+                                <label for="new-section-background_image">Header Background Image</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="section">
+                    <div class="row">
+                        <div class="input-field col s12 section-description">
+                            <textarea id="new-section-description" name="description"></textarea>
+                            <label for="new-section-description" style="top: -45px;">Section Description</label>
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <button type="submit" name="action" class="btn-large waves-effect waves-light blue section-save"><i class="material-icons right">send</i>Save</button>
+                        <a data-section="new-section" class="btn-large waves-effect waves-light red section-cancel-edit"><i class="material-icons right">cancel</i>Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 
     <footer class="page-footer orange">
         <div class="container">
