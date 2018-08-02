@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sudo docker-compose exec web sh -c "php ./vendor/davedevelopment/phpmig/bin/phpmig $@"
+result=$?
+exit $result
