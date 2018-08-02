@@ -37,6 +37,57 @@ class section extends Model {
         return $this;
     }
 
+    public function delete() {
+        $products = $this->get('products');
+        foreach($products as $product) {
+            $product->delete();
+        }
+        $this->db->query('DELETE FROM products WHERE id=' . $this->get('id'));
+        return true;
+    }
+
+    public function update() {
+        $sql = "
+            UPDATE
+                sections
+            SET
+                name = :name,
+                short_desc = :short_desc,
+                description = :description,
+                background_image = :background_image
+            WHERE
+                id = :id
+        ";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':id', $this->get('id'));
+        $statement->bindParam(':name', $this->get('name'));
+        $statement->bindParam(':short_desc', $this->get('short_desc'));
+        $statement->bindParam(':description', $this->get('description'));
+        $statement->bindParam(':background_image', $this->get('background_image'));
+        $statement->execute();
+        return $this;
+    }
+
+    public function create() {
+        $sql = "
+            INSERT INTO
+                sections (`name`, `short_desc`, `description`, `background_image`)
+            VALUES (
+                :name,
+                :short_desc,
+                :description,
+                :background_image
+            );
+        ";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':name', $this->get('name'));
+        $statement->bindParam(':short_desc', $this->get('short_desc'));
+        $statement->bindParam(':description', $this->get('description'));
+        $statement->bindParam(':background_image', $this->get('background_image'));
+        $statement->execute();
+        return $this;
+    }
+
     public function hasProducts() {
         if(array_key_exists('products', $this->data)) return $this;
         $productsTable = new productsTable($this->container);

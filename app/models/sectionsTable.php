@@ -8,7 +8,7 @@ class sectionsTable extends Model {
         return $sections;
     }
 
-    public function getSection($section_id) {
+    public function get($section_id) {
         $statement = $this->db->prepare("
             SELECT
                 *
@@ -21,6 +21,12 @@ class sectionsTable extends Model {
         $statement->execute();
         $sections = $this->fetchAsSectionObjs($statement->fetchAll());
         return $sections[0] ?? null;
+    }
+
+    public function addSection($data) {
+        $section = new section($this->container, $data);
+        $section->create();
+        return $section;
     }
 
     private function fetchAsSectionObjs($raw_sections) {

@@ -35,6 +35,60 @@ class product extends Model {
         return $this;
     }
 
+    public function delete() {
+        $this->db->query("DELETE FROM images WHERE product_id=" . $this->get('id'));
+        $this->db->query("DELETE FROM products WHERE id=" . $this->get('id'));
+        return true;
+    }
+
+    public function update() {
+        $sql = "
+            UPDATE
+                products
+            SET
+                name = :name,
+                overview = :overview,
+                specs = :specs,
+                tech = :tech,
+                main_image = :main_image
+            WHERE
+                id = :id
+        ";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':id', $this->get('id'));
+        $statement->bindParam(':name', $this->get('name'));
+        $statement->bindParam(':overview', $this->get('overview'));
+        $statement->bindParam(':specs', $this->get('specs'));
+        $statement->bindParam(':tech', $this->get('tech'));
+        $statement->bindParam(':main_image', $this->get('main_image'));
+        $statement->execute();
+        return $this;
+    }
+
+    public function create() {
+        $sql = "
+            INSERT INTO
+                products (`section_id`, `name`, `overview`, `specs`, `tech`, `main_image`)
+            VALUES (
+                :section_id,
+                :name,
+                :overview,
+                :specs,
+                :tech,
+                :main_image
+            );
+        ";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':section_id', $this->get('section_id'));
+        $statement->bindParam(':name', $this->get('name'));
+        $statement->bindParam(':overview', $this->get('overview'));
+        $statement->bindParam(':specs', $this->get('specs'));
+        $statement->bindParam(':tech', $this->get('tech'));
+        $statement->bindParam(':main_image', $this->get('main_image'));
+        $statement->execute();
+        return $this;
+    }
+
     private function setCssId() {
         $cssId = $this->get('name') . '-' . $this->get('id');
         $cssId = strtolower($cssId);
