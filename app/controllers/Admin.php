@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use App\Models\sectionsTable;
+use App\Models\productsTable;
 
 class Admin  extends controller {
     public function home(\Slim\Http\Request $request, \Slim\Http\Response $response) {
@@ -39,14 +40,14 @@ class Admin  extends controller {
 
     public function deleteProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
         $productsTable = new productsTable($this->container);
-        $product = $sectionsTable->get($args['id']);
+        $product = $productsTable->get($args['id']);
         $product->delete();
         return $response->withRedirect('/');
     }
 
     public function updateProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
         $productsTable = new productsTable($this->container);
-        $product = $sectionsTable->get($args['id']);
+        $product = $productsTable->get($args['id']);
         $data = $request->getParsedBody();
         foreach($data as $key => $value) {
             $product->set($key, $value);

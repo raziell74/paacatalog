@@ -19,6 +19,13 @@ $(document).ready(function(){
         }
     });
 
+    $('.product-delete').click(function(evnt){
+        var productId = $(this).attr('data-product');
+        if(confirm("This will permanently delete this product. \n\n Are you sure you want to proceed?")) {
+            window.location.href = "/delete/product/" + productId;
+        }
+    });
+
     $('.section-cancel-edit').click(function(evnt){
         var sectionId = $(this).attr('data-section'),
             sectionPreview = $('#' + sectionId)

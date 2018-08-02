@@ -146,8 +146,10 @@
                                     </div>
                                     <div class="card-action">
                                         <a class="btn-large waves-effect waves-light blue darken-4 modal-trigger" href="#<?=$product->cssId?>-modal">Check It Out</a>
+                                        <a class="btn-floating btn-large waves-effect waves-light pulse blue product-edit modal-trigger" href="#<?=$product->cssId?>-modal-edit"><i class="material-icons">edit</i></a>
+                                        <button data-product="<?=$product->id?>"class="btn-floating btn-large waves-effect waves-light pulse red product-delete"><i class="material-icons">delete</i></button>
 
-                                        <!-- Modal Structure -->
+                                        <!-- Preview Modal Structure -->
                                         <div id="<?=$product->cssId?>-modal" class="modal">
                                             <div class="modal-content">
                                                 <h4><?=$product->name?></h4>
@@ -172,6 +174,53 @@
                                                         <?=$product->tech?>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Edit Modal Structure -->
+                                        <div id="<?=$product->cssId?>-modal-edit" class="modal">
+                                            <div class="modal-content">
+                                                <form action="/save/product/<?=$product->id?>" method="post" id="<?=$product->cssId?>-edit">
+                                                    <div class="input-field col s6">
+                                                        <input placeholder="Placeholder" id="<?=$product->cssId?>-name" name="name" type="text" class="validate" value="<?=$product->name?>">
+                                                        <label for="<?=$product->cssId?>-name">Product Name</label>
+                                                    </div>
+                                                    <div class="row right">
+                                                        <button type="submit" name="action" class="btn-large waves-effect waves-light blue section-save"><i class="material-icons right">send</i>Save</button>
+                                                        <a href="#!" class="modal-close btn-large waves-effect waves-light red section-cancel-edit"><i class="material-icons right">cancel</i>Cancel</a>
+                                                    </div>
+                                                    <div class="col s12">
+                                                        <ul class="tabs">
+                                                            <li class="tab col s3"><a class="active" href="#<?=$product->cssId?>-overview-edit">Overview</a></li>
+                                                            <li class="tab col s3"><a href="#<?=$product->cssId?>-specifications-edit">Specifications</a></li>
+                                                            <li class="tab col s3"><a href="#<?=$product->cssId?>-technical-edit">Tech</a></li>
+                                                            <li class="tab col s3"><a href="#<?=$product->cssId?>-images-edit">Images</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col s12 modal-tabs">
+                                                        <div id="<?=$product->cssId?>-overview-edit" class="col s12">
+                                                            <div class="input-field col s12 product-overview">
+                                                                <textarea id="<?=$product->cssId?>-overview" name="overview"><?=$product->overview?></textarea>
+                                                                <label for="<?=$product->cssId?>-overview">Overview</label>
+                                                            </div>
+                                                        </div>
+                                                        <div id="<?=$product->cssId?>-specifications-edit" class="col s12">
+                                                            <div class="input-field col s12 product-specs">
+                                                                <textarea id="<?=$product->cssId?>-specs" name="specs"><?=$product->specs?></textarea>
+                                                                <label for="<?=$product->cssId?>-specs">Specifications</label>
+                                                            </div>
+                                                        </div>
+                                                        <div id="<?=$product->cssId?>-technical-edit" class="col s12">
+                                                            <div class="input-field col s12 product-tech">
+                                                                <textarea id="<?=$product->cssId?>-tech" name="specs"><?=$product->tech?></textarea>
+                                                                <label for="<?=$product->cssId?>-tech">Tech</label>
+                                                            </div>
+                                                        </div>
+                                                        <div id="<?=$product->cssId?>-images-edit" class="col s12">
+                                                            <img src="images/Green-Bot.png" class="responsive-img">
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
