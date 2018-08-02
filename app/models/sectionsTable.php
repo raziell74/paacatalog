@@ -8,7 +8,7 @@ class sectionsTable extends Model {
         return $sections;
     }
 
-    public function getSection($section_id) {
+    public function get($section_id) {
         $statement = $this->db->prepare("
             SELECT
                 *

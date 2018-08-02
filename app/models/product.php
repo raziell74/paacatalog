@@ -35,6 +35,12 @@ class product extends Model {
         return $this;
     }
 
+    public function delete() {
+        $this->db->query("DELETE FROM images WHERE product_id=" . $this->get('id'));
+        $this->db->query("DELETE FROM products WHERE id=" . $this->get('id'));
+        return true;
+    }
+
     private function setCssId() {
         $cssId = $this->get('name') . '-' . $this->get('id');
         $cssId = strtolower($cssId);

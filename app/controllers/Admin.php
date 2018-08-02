@@ -15,4 +15,26 @@ class Admin  extends controller {
     public function post(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
        
     }
+
+    public function deleteSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+        $sectionsTable = new sectionsTable($this->container);
+        $section = $sectionsTable->get($args['id']);
+        $section->delete();
+        return $response->withRedirect('/');
+    }
+
+    public function updateSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+        $sectionsTable = new sectionsTable($this->container);
+        $section = $sectionsTable->get($args['id']);
+        $data = $request->getParsedBody();
+        foreach($data as $key => $value) {
+            $section->set($key, $value);
+        }
+        $section->save();
+        return $response->withRedirect('/#' . $section->cssId);
+    }
+
+    public function addSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+        return $response->withRedirect('/');
+    }
 }

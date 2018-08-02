@@ -33,6 +33,10 @@ p {
     width: 100%;
   }
 
+#index-banner {
+  min-height: 215px;
+}
+
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
@@ -62,4 +66,14 @@ footer.page-footer {
 
 .hidden {
   opacity: 0.5;
+}
+
+.crud-buttons  {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.crud-buttons a {
+  margin-right: 10px;
 }
