@@ -13,6 +13,19 @@ class Admin  extends controller {
         return $this->view->render($response, "/admin.php", $vars);
     }
 
+    public function download(\Slim\Http\Request $request, \Slim\Http\Response $response) {
+        $sections = new sectionsTable($this->container);
+        $vars = [
+            'name' => 'Peak Analysis & Automation Catalog',
+            'sections' => $sections->getAll()
+        ];
+        $view = $this->view->render($response, "/catalog.php", $vars);
+        $body = $view->getBody();
+        file_put_contents(__DIR__ . "/../../public/downloads/catalog.html", $body);
+        //$newResponse = $response->withAddedHeader('Content-disposition', 'attachment; filename=/downloads/catalog.html');
+        return $response;
+    }
+
     public function deleteSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
         $sectionsTable = new sectionsTable($this->container);
         $section = $sectionsTable->get($args['id']);
