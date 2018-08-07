@@ -17,7 +17,7 @@
 }
 
 @media only screen and (max-width : 992px) {
-  .parallax-container .section {
+  .parallax-container .section {mo
     position: absolute;
     top: 40%;
   }
@@ -72,12 +72,6 @@ nav ul a, nav .brand-logo {
 
 h1.header.center, h5.header.col.s12.light {
     text-shadow: rgba(0, 0, 0, 0.75) 2px 2px 2px !important;
-}
-
-.modal-tabs {
-    white-space: pre-line;
-    height: 355px;
-    overflow: auto;
 }
 
 .card .card-image img {

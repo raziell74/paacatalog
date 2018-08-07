@@ -3,7 +3,7 @@
         <h4><?=$product->name?></h4>
         <div class="col s12">
             <ul class="tabs">
-                <li class="tab col s4"><a class="active" href="#<?=$product->cssId?>-overview">Overview</a></li>
+                <li class="tab col s4"><a href="#<?=$product->cssId?>-overview">Overview</a></li>
                 <li class="tab col s4"><a href="#<?=$product->cssId?>-specifications">Specifications</a></li>
                 <li class="tab col s4"><a href="#<?=$product->cssId?>-technical">Tech</a></li>
             </ul>
