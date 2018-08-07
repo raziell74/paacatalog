@@ -20,10 +20,8 @@ class Admin  extends controller {
             'sections' => $sections->getAll()
         ];
         $view = $this->view->render($response, "/catalog.php", $vars);
-        $body = $view->getBody();
-        file_put_contents(__DIR__ . "/../../public/downloads/catalog.html", $body);
-        //$newResponse = $response->withAddedHeader('Content-disposition', 'attachment; filename=/downloads/catalog.html');
-        return $response;
+        $newResponse = $response->withAddedHeader('Content-disposition', 'attachment; filename=PAA-Catalog.html');
+        return $newResponse;
     }
 
     public function deleteSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
