@@ -1,22 +1,24 @@
 <?php
 namespace App\Controllers;
+use \Slim\Http\Request;
+use \Slim\Http\Response;
 use App\Models\sectionsTable;
 use App\Models\productsTable;
 
 class Admin  extends controller {
-    public function home(\Slim\Http\Request $request, \Slim\Http\Response $response) {
+    public function home(Request $request, Response $response) {
         $sections = new sectionsTable($this->container);
         $vars = [
-            'name' => 'Peak Analysis & Automation Catalog',
+            'is_admin' => true,
             'sections' => $sections->getAll()
         ];
-        return $this->view->render($response, "/admin.php", $vars);
+        return $this->view->render($response, "/catalog.php", $vars);
     }
 
-    public function download(\Slim\Http\Request $request, \Slim\Http\Response $response) {
+    public function download(Request $request, Response $response) {
         $sections = new sectionsTable($this->container);
         $vars = [
-            'name' => 'Peak Analysis & Automation Catalog',
+            'is_admin' => false,
             'sections' => $sections->getAll()
         ];
         $view = $this->view->render($response, "/catalog.php", $vars);
@@ -24,14 +26,14 @@ class Admin  extends controller {
         return $newResponse;
     }
 
-    public function deleteSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+    public function deleteSection(Request $request, Response $response, $args = []) {
         $sectionsTable = new sectionsTable($this->container);
         $section = $sectionsTable->get($args['id']);
         $section->delete();
         return $response->withRedirect('/');
     }
 
-    public function updateSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+    public function updateSection(Request $request, Response $response, $args = []) {
         $sectionsTable = new sectionsTable($this->container);
         $section = $sectionsTable->get($args['id']);
         $data = $request->getParsedBody();
@@ -42,21 +44,21 @@ class Admin  extends controller {
         return $response->withRedirect('/#' . $section->cssId);
     }
 
-    public function addSection(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+    public function addSection(Request $request, Response $response, $args = []) {
         $sectionsTable = new sectionsTable($this->container);
         $data = $request->getParsedBody();
         $sectionsTable->addSection($data);
         return $response->withRedirect('/#' . $section->cssId);
     }
 
-    public function deleteProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+    public function deleteProduct(Request $request, Response $response, $args = []) {
         $productsTable = new productsTable($this->container);
         $product = $productsTable->get($args['id']);
         $product->delete();
         return $response->withRedirect('/');
     }
 
-    public function updateProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+    public function updateProduct(Request $request, Response $response, $args = []) {
         $productsTable = new productsTable($this->container);
         $product = $productsTable->get($args['id']);
         $data = $request->getParsedBody();
@@ -67,7 +69,7 @@ class Admin  extends controller {
         return $response->withRedirect('/#' . $product->cssId);
     }
 
-    public function addProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, $args = []) {
+    public function addProduct(Request $request, Response $response, $args = []) {
         $productsTable = new productsTable($this->container);
         $data = $request->getParsedBody();
         $productsTable->addProduct($data);
