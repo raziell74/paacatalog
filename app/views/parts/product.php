@@ -9,10 +9,10 @@
             <?php if($is_admin) { ?>
                 <a class="btn-floating btn-large waves-effect waves-light pulse blue product-edit modal-trigger" href="#<?=$product->cssId?>-modal-edit"><i class="material-icons">edit</i></a>
                 <button data-product="<?=$product->id?>"class="btn-floating btn-large waves-effect waves-light pulse red product-delete"><i class="material-icons">delete</i></button>
-                <?php include(__DIR__ . "/productAdminModal.php"); ?>
             <?php } ?>
 
             <?php include(__DIR__ . "/productModal.php"); ?>
+            <?php if($is_admin) include(__DIR__ . "/productAdminModal.php"); ?>
         </div>
     </div>
 </div>
