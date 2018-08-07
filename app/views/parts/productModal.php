@@ -1,4 +1,4 @@
-<div id="<?=$product->cssId?>-modal" class="modal">
+<div id="<?=$product->cssId?>-modal" class="modal s12">
     <div class="modal-content">
         <h4><?=$product->name?></h4>
         <div class="col s12">
