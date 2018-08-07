@@ -42,7 +42,7 @@ class section extends Model {
         foreach($products as $product) {
             $product->delete();
         }
-        $this->db->query('DELETE FROM products WHERE id=' . $this->get('id'));
+        $this->db->query('DELETE FROM sections WHERE id=' . $this->get('id'));
         return true;
     }
 
