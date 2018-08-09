@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Company Bio</h5>
-                    <p class="grey-text text-lighten-4">Company Description Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. </p>
+                    <p class="grey-text text-lighten-4">We Design and build a range of precision laboratory robots for laboratory and manufacturing applications. The founders of the company have many years’ experience in factory automation and robotics prior to incorporating in 1989. The company started out (under the name of MEKAnize Inc.) as an integrator of motion control products and then expanded into manufacturing its own robots. Currently the robots are manufactured in-house for use in the biotechnology and clinical automation markets. Our range includes the BiNEDx, KiNEDx, SciNEDx and GX robots.</p>
                 </div>
             </div>
         </div>
