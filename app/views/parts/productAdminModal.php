@@ -1,4 +1,4 @@
-<?php $savePath = $product->cssId == 'new-product' ? '/add/product' : '/save/product/' . $product->id; ?>
+<?php $savePath = $product->id == 0 ? '/add/product' : '/save/product/' . $product->id; ?>
 
 <div id="<?=$product->cssId?>-modal-edit" class="modal">
     <div class="modal-content">

@@ -15,7 +15,8 @@ class Admin  extends controller {
                     ->set('background_image', "")
                     ->set('description', "");
         $new_product = new \App\Models\product($this->container);
-        $new_product->set('cssId', "new-product")
+        $new_product->set('id', 0)
+                    ->set('cssId', "new-product")
                     ->set('name', "")
                     ->set('overview', "")
                     ->set('specs', "")

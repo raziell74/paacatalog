@@ -1,4 +1,4 @@
-<?php $savePath = $section->cssId == 'new-product' ? '/add/section' : '/save/section/' . $section->id; ?>
+<?php $savePath = $section->id == 0 ? '/add/section' : '/save/section/' . $section->id; ?>
 <form action="<?=$savePath?>" method="post" id="<?=$section->cssId?>-edit" class="z-depth-5 hide">
     <div class="parallax-container valign-wrapper orange-text">
         <div class="section no-pad-bot">
