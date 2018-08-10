@@ -38,7 +38,6 @@ class product extends Model {
     }
 
     public function set($key, $value) {
-        if(empty($value)) return $this;
         if($key == "images" && !is_array($value)) {
             $value = explode('|', $value);
         }
@@ -47,7 +46,6 @@ class product extends Model {
     }
 
     public function delete() {
-        $this->db->query("DELETE FROM images WHERE product_id=" . $this->get('id'));
         $this->db->query("DELETE FROM products WHERE id=" . $this->get('id'));
         return true;
     }

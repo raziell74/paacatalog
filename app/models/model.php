@@ -6,7 +6,7 @@ class Model {
     protected $db;
     protected $logger;
 
-    public function __construct(\Slim\Container $container, $data = NULL) {
+    public function __construct(\Slim\Container $container, $data = []) {
         $this->container = $container;
         $this->db = $this->container['db'];
         $this->logger = $this->container['logger'];

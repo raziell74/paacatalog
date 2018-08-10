@@ -1,11 +1,4 @@
-<?php
-    $section->set('cssId', "new-section");
-    $section->set('name', "");
-    $section->set('short_desc', "");
-    $section->set('background_image', "");
-    $section->set('description', "");
-?>
-
+<?php $section = $new_section; ?>
 <div class="section-content">
     <div id="new-section" class="preview-display new">
         <div class="parallax-container valign-wrapper orange-text z-depth-5">

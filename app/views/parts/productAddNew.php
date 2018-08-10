@@ -1,12 +1,4 @@
-<?php
-    $product->set('cssId', "new-product");
-    $product->set('name', "");
-    $product->set('overview', "");
-    $product->set('specs', "");
-    $product->set('tech', "");
-    $product->set('main_image', "");
-?>
-
+<?php $product = $new_product; ?>
 <div id="<?=$product->cssId?>" class="col s12 m4">
     <div class="card">
         <div class="card-image center">
