@@ -33,6 +33,7 @@ class section extends Model {
     }
 
     public function set($key, $value) {
+        if(empty($value)) return $this;
         $this->data[$key] = $value;
         return $this;
     }

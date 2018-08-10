@@ -38,6 +38,7 @@ class product extends Model {
     }
 
     public function set($key, $value) {
+        if(empty($value)) return $this;
         if($key == "images" && !is_array($value)) {
             $value = explode('|', $value);
         }
