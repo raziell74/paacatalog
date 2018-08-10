@@ -3,6 +3,7 @@
 <div id="<?=$product->cssId?>-modal-edit" class="modal">
     <div class="modal-content">
         <form action="<?=$savePath?>" method="post" id="<?=$product->cssId?>-edit">
+            <input type="hidden" name="section_id" value="<?=$section->id?>">
             <div class="input-field col s6">
                 <input placeholder="Product Name" id="<?=$product->cssId?>-name" name="name" type="text" class="validate" value="<?=$product->name?>">
                 <label for="<?=$product->cssId?>-name">Product Name</label>
