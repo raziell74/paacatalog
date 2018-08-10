@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Peak Analysis & Automation - Catalog</title>
 
-    <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <style type="text/css"><?php include(__DIR__ . "/css/Style" . ($is_admin ? '' : '.min') . ".css"); ?></style>
@@ -43,7 +42,7 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Company Bio</h5>
-                    <p class="grey-text text-lighten-4">Company Description Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. </p>
+                    <p class="grey-text text-lighten-4">We Design and build a range of precision laboratory robots for laboratory and manufacturing applications. The founders of the company have many years’ experience in factory automation and robotics prior to incorporating in 1989. The company started out (under the name of MEKAnize Inc.) as an integrator of motion control products and then expanded into manufacturing its own robots. Currently the robots are manufactured in-house for use in the biotechnology and clinical automation markets. Our range includes the BiNEDx, KiNEDx, SciNEDx and GX robots.</p>
                 </div>
             </div>
         </div>
@@ -55,7 +54,6 @@
         </div>
     </footer>
 
-    <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
