@@ -1,7 +1,7 @@
 <div id="<?=$product->cssId?>" class="col s12 m4">
     <div class="card">
         <div class="card-image center">
-            <img src="<?=$product->main_image?>">
+            <img width="365" height="365" src="<?=$product->main_image ?: $product->default_image?>">
             <span class="card-title"><?=$product->name?></span>
         </div>
         <div class="card-action">
