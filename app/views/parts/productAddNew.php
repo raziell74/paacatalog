@@ -1,4 +1,4 @@
-<?php $product = $new_product; ?>
+<?php $product = $new_product; $product->set('section_id', $section->id);?>
 <div id="<?=$product->cssId?>" class="col s12 m4">
     <div class="card">
         <div class="card-image center">
