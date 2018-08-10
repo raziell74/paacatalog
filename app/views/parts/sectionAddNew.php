@@ -1,4 +1,5 @@
 <?php
+    $product = new  App\Models\section();
     $section->set('cssId', "new-section");
     $section->set('name', "");
     $section->set('short_desc', "");

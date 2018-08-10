@@ -1,4 +1,5 @@
 <?php
+    $product = new  App\Models\product();
     $product->set('cssId', "new-product");
     $product->set('name', "");
     $product->set('overview', "");
