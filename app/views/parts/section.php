@@ -36,16 +36,16 @@
     <?php if($is_admin) include(__DIR__ . "/sectionAdminForm.php"); ?>
 </div>
 
-<?php if($section->hasProducts()) { ?>
-    <div class="container">
-        <div class="section">
-            <div class="row">
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <?php if($section->hasProducts()) { ?>
                 <?php foreach($section->products as $product) { ?>
                     <?php include(__DIR__ . "/product.php"); ?>
                 <? } ?>
-
-                <?php if($is_admin) include(__DIR__ . "/productAddNew.php"); ?>
-            </div>
+            <?php } ?>
+            <?php if($is_admin) include(__DIR__ . "/productAddNew.php"); ?>
         </div>
     </div>
-<?php } ?>
+</div>
