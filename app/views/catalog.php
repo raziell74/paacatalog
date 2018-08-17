@@ -54,11 +54,11 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+    <script><?php include(__DIR__ . "/js/jquery-2.1.1.min.js"); ?></script>
+    <script><?php include(__DIR__ . "/js/materialize.min.js"); ?></script>
     <script><?php include(__DIR__ . "/js/Initialize" . ($is_admin ? '' : '.min') . ".js"); ?></script>
     <?php if($is_admin) { ?>
+        <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
         <script><?php include(__DIR__ . "/js/Admin.js"); ?></script>
     <?php } ?>
 </body>
