@@ -1,3 +1,4 @@
+<?php require(__DIR__ . "/../helpers/image_helper.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
                 <h1 class="header center white-text text-lighten-2">Peak Analysis & Automation Catalog</h1>
             </div>
         </div>
-        <div class="parallax"><img src="https://www.paa-automation.com/wp-content/uploads/2015/11/overlord-slider.jpg"></div>
+        <div class="parallax"><img src="<?=img("/images/overlord-slider.jpg", $is_admin); ?>"></div>
     </div>
 
     <div class="container">

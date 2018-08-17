@@ -18,7 +18,7 @@
                 </div>
             </div>
             <?php if($section->background_image) { ?>
-                <div class="parallax"><img class="section-background-image" src="<?=$section->background_image?>" alt="Unsplashed background img 2"></div>
+                <div class="parallax"><img class="section-background-image" src="<?=img($section->background_image, $is_admin)?>" alt="Unsplashed background img 2"></div>
             <?php } ?>
         </div>
 
