@@ -1,3 +1,4 @@
+<?php require(__DIR__ . "/../helpers/image_helper.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Peak Analysis & Automation - Catalog</title>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <?php if($is_admin) { ?><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><?php } ?>
+    <style type="text/css"><?php include(__DIR__ . "/css/materialize.min.css"); ?></style>
     <style type="text/css"><?php include(__DIR__ . "/css/Style" . ($is_admin ? '' : '.min') . ".css"); ?></style>
 </head>
 <body>
@@ -18,7 +19,7 @@
                 <h1 class="header center white-text text-lighten-2">Peak Analysis & Automation Catalog</h1>
             </div>
         </div>
-        <div class="parallax"><img src="https://www.paa-automation.com/wp-content/uploads/2015/11/overlord-slider.jpg"></div>
+        <div class="parallax"><img src="<?=img("/images/overlord-slider.jpg", $is_admin); ?>"></div>
     </div>
 
     <div class="container">
@@ -54,11 +55,11 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+    <script><?php include(__DIR__ . "/js/jquery-2.1.1.min.js"); ?></script>
+    <script><?php include(__DIR__ . "/js/materialize.min.js"); ?></script>
     <script><?php include(__DIR__ . "/js/Initialize" . ($is_admin ? '' : '.min') . ".js"); ?></script>
     <?php if($is_admin) { ?>
+        <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
         <script><?php include(__DIR__ . "/js/Admin.js"); ?></script>
     <?php } ?>
 </body>
