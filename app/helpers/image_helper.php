@@ -1,5 +1,5 @@
 <?php
-function img($url, $is_admin = true) {
+function encoded_img($url, $is_admin = true) {
     if($is_admin) return $url;
     $file_info = new finfo(FILEINFO_MIME_TYPE);
     $images_dir = strpos($url,"http") === false ? __DIR__ . "/../../public" : "";

@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Peak Analysis & Automation - Catalog</title>
 
-    <?php if($is_admin) { ?><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><?php } ?>
+    <?php if($is_admin) { ?>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700,900|Roboto+Condensed:400,300,700" rel="stylesheet">
+        <link href="/css/dropify.min.css" rel="stylesheet">
+    <?php } ?>
     <style type="text/css"><?php include(__DIR__ . "/css/materialize.min.css"); ?></style>
     <style type="text/css"><?php include(__DIR__ . "/css/Style" . ($is_admin ? '' : '.min') . ".css"); ?></style>
 </head>
@@ -19,7 +23,7 @@
                 <h1 class="header center white-text text-lighten-2">Peak Analysis & Automation Catalog</h1>
             </div>
         </div>
-        <div class="parallax"><img src="<?=img("/images/overlord-slider.jpg", $is_admin); ?>"></div>
+        <div class="parallax"><img src="<?=encoded_img("/images/overlord-slider.jpg", $is_admin); ?>"></div>
     </div>
 
     <div class="container">
@@ -60,7 +64,8 @@
     <script><?php include(__DIR__ . "/js/Initialize" . ($is_admin ? '' : '.min') . ".js"); ?></script>
     <?php if($is_admin) { ?>
         <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
-        <script><?php include(__DIR__ . "/js/Admin.js"); ?></script>
+        <script src='/js/dropify.min.js'></script>
+        <script src='/js/Admin.js'></script>
     <?php } ?>
 </body>
 </html>
