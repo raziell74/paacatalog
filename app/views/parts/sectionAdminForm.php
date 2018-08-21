@@ -19,7 +19,7 @@
 
                 <div class="row">
                     <div class="col s12">
-                        <label for="dropify-test">Header Background Image</label>
+                        <label for="<?=$section->cssId?>-background_image">Header Background Image</label>
                     </div>
                 </div>
                 <div class="row">
