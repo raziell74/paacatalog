@@ -8,6 +8,7 @@ class Section  extends controller {
     public function addSection(Request $request, Response $response) {
         $sectionsTable = new sectionsTable($this->container);
         $data = $request->getParsedBody();
+        $data = $this->processBackgroundImage($request, $data);
         $sectionsTable->addSection($data);
         return $response->withRedirect('/#' . $section->cssId);
     }
