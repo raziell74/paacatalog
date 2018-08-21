@@ -4,14 +4,15 @@ namespace App\Models;
 class product extends Model {
     private $data;
     public $default_image = "https://www.paa-automation.com/wp-content/themes/paa-theme/assets/img/paa-automation-logo.png";
+    private $images_table;
 
     protected function init($data) {
+        $this->images_table = new product_imagesTable($this->container);
         foreach($data as $key => $value) {
-            if($key == "images" && !is_array($value)) {
-                $value = explode('|', $value);
-            }
             $this->data[$key] = $value;
         }
+        $this->data['main_image'] = $this->images_table->getMainImage($this->data['id']);
+        $this->data['images'] = $this->images_table->getImages($this->data['id']);
         $this->setCssId();
         return $this;
     }
@@ -31,21 +32,19 @@ class product extends Model {
     }
 
     public function get($key) {
-        if($key == "images" && !is_array($this->data[$key])) {
-            $this->data[$key] = explode('|', $this->data[$key]);
-        }
         return $this->data[$key] ?? null;
     }
 
     public function set($key, $value) {
-        if($key == "images" && !is_array($value)) {
-            $value = explode('|', $value);
-        }
         $this->data[$key] = $value;
         return $this;
     }
 
     public function delete() {
+        $images = $this->get('images');
+        foreach($images as $image) {
+            $image->delete();
+        }
         $this->db->query("DELETE FROM products WHERE id=" . $this->get('id'));
         return true;
     }
@@ -58,9 +57,7 @@ class product extends Model {
                 name = :name,
                 overview = :overview,
                 specs = :specs,
-                tech = :tech,
-                main_image = :main_image,
-                images = :images
+                tech = :tech
             WHERE
                 id = :id
         ";
@@ -70,8 +67,6 @@ class product extends Model {
         $statement->bindParam(':overview', $this->get('overview'));
         $statement->bindParam(':specs', $this->get('specs'));
         $statement->bindParam(':tech', $this->get('tech'));
-        $statement->bindParam(':main_image', $this->get('main_image'));
-        $statement->bindParam(':images', implode('|', $this->get('images')));
         $statement->execute();
         return $this;
     }
@@ -79,15 +74,13 @@ class product extends Model {
     public function create() {
         $sql = "
             INSERT INTO
-                products (`section_id`, `name`, `overview`, `specs`, `tech`, `main_image`, `images`)
+                products (`section_id`, `name`, `overview`, `specs`, `tech`)
             VALUES (
                 :section_id,
                 :name,
                 :overview,
                 :specs,
-                :tech,
-                :main_image,
-                :images
+                :tech
             );
         ";
         $statement = $this->db->prepare($sql);
@@ -96,9 +89,8 @@ class product extends Model {
         $statement->bindParam(':overview', $this->get('overview'));
         $statement->bindParam(':specs', $this->get('specs'));
         $statement->bindParam(':tech', $this->get('tech'));
-        $statement->bindParam(':main_image', $this->get('main_image'));
-        $statement->bindParam(':images', implode('|', $this->get('images')));
         $statement->execute();
+        $this->set('id', $this->db->lastInsertId());
         return $this;
     }
 
