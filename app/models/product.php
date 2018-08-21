@@ -53,9 +53,7 @@ class product extends Model {
                 name = :name,
                 overview = :overview,
                 specs = :specs,
-                tech = :tech,
-                main_image = :main_image,
-                images = :images
+                tech = :tech
             WHERE
                 id = :id
         ";
@@ -65,8 +63,6 @@ class product extends Model {
         $statement->bindParam(':overview', $this->get('overview'));
         $statement->bindParam(':specs', $this->get('specs'));
         $statement->bindParam(':tech', $this->get('tech'));
-        $statement->bindParam(':main_image', $this->get('main_image'));
-        $statement->bindParam(':images', implode('|', $this->get('images')));
         $statement->execute();
         return $this;
     }
@@ -74,15 +70,13 @@ class product extends Model {
     public function create() {
         $sql = "
             INSERT INTO
-                products (`section_id`, `name`, `overview`, `specs`, `tech`, `main_image`, `images`)
+                products (`section_id`, `name`, `overview`, `specs`, `tech`)
             VALUES (
                 :section_id,
                 :name,
                 :overview,
                 :specs,
-                :tech,
-                :main_image,
-                :images
+                :tech
             );
         ";
         $statement = $this->db->prepare($sql);
@@ -91,9 +85,9 @@ class product extends Model {
         $statement->bindParam(':overview', $this->get('overview'));
         $statement->bindParam(':specs', $this->get('specs'));
         $statement->bindParam(':tech', $this->get('tech'));
-        $statement->bindParam(':main_image', $this->get('main_image'));
-        $statement->bindParam(':images', implode('|', $this->get('images')));
         $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        $this->set('id', $result['id']);
         return $this;
     }
 

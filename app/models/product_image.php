@@ -3,8 +3,10 @@ namespace App\Models;
 
 class product_image extends Model {
     private $data;
+    private $images_table;
 
     protected function init($data) {
+        $this->images_table = new product_imagesTable($this->container);
         foreach($data as $key => $value) {
             $this->data[$key] = $value;
         }
@@ -36,20 +38,14 @@ class product_image extends Model {
     }
 
     public function delete() {
-        unlink(__DIR__ . "/../.." . $this->get('url'));
+        unlink(__DIR__ . "/../../public" . $this->get('url'));
         $this->db->query("DELETE FROM product_images WHERE id=" . $this->get('id'));
         return true;
     }
 
     public function toggleAsMainImage() {
-        $this->db->query("
-            UPDATE
-                `product_images`
-            SET
-                `main_image` = 0
-            WHERE
-                product_id = " . $this->get('product_id')
-        );
+        $current_main = $this->images_table->getMainImage($this->get('product_id'));
+        $current_main->delete();
         $this->db->query("
             UPDATE
                 `product_images`
@@ -64,20 +60,19 @@ class product_image extends Model {
     public function create() {
         $sql = "
             INSERT INTO
-                product_images (`product_id`, `url`, `encoded_image`, `main_image`)
+                product_images (`product_id`, `url`, `encoded_image`)
             VALUES (
                 :product_id,
                 :url,
-                :encoded_image,
-                :main_image
+                :encoded_image
             );
         ";
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':product_id', $this->get('product_id'));
         $statement->bindParam(':url', $this->get('url'));
         $statement->bindParam(':encoded_image', $this->get('encoded_image'));
-        $statement->bindParam(':main_image', $this->get('main_image'));
         $statement->execute();
+        $this->set('id', $this->db->lastInsertId());
         return $this;
     }
 

@@ -92,7 +92,6 @@ class AddProductImagesTable extends Migration {
             $basename =  $path_parts['filename'] . '-' . bin2hex(random_bytes(8));
             $filename = sprintf('%s.%0.8s', $basename, $extension);
 
-            $file_info = new finfo(FILEINFO_MIME_TYPE);
             $image = file_get_contents($product['main_image']);
             $image_data = base64_encode($image);
             $encoded_image = "data:image/$extension;base64,$image_data";

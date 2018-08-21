@@ -2,7 +2,7 @@
 
 <div id="<?=$section->cssId?>-<?=$product->cssId?>-modal-edit" class="modal">
     <div class="modal-content">
-        <form action="<?=$savePath?>" method="post" id="<?=$product->cssId?>-edit">
+        <form action="<?=$savePath?>" method="post" enctype="multipart/form-data" id="<?=$product->cssId?>-edit">
             <input type="hidden" name="section_id" value="<?=$section->id?>">
             <div class="input-field col s6">
                 <input placeholder="Product Name" id="<?=$section->cssId?>-<?=$product->cssId?>-name" name="name" type="text" class="validate" value="<?=$product->name?>">
@@ -40,14 +40,28 @@
                     </div>
                 </div>
                 <div id="<?=$section->cssId?>-<?=$product->cssId?>-images-edit" class="col s12">
-                    <?php if($product->main_image) { ?>
-                        <div class="col s12 m6">
-                            <img src="<?=$product->main_image->url?>" class="responsive-img">
+                    <div class="row">
+                        <div class="col s6">
+                            <label for="<?=$product->cssId?>-main_image">Main Image</label>
                         </div>
-                    <?php } ?>
-                    <div class="input-field col s6">
-                        <input placeholder="Main Image URL" id="<?=$section->cssId?>-<?=$product->cssId?>-main_image" name="main_image" type="text" class="validate" value="<?=$product->main_image->url?>">
-                        <label for="<?=$section->cssId?>-<?=$section->cssId?>-main_image">Main Image URL</label>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <input  id="<?=$product->cssId?>-main_image"
+                                    name="main_image"
+                                    type="file"
+                                    class="dropify"
+                                    data-max-file-size="16M"
+                                    <?php if($product->main_image) { ?>
+                                        data-default-file="<?=$product->main_image->url?>"
+                                    <?php } ?>
+                            />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 right right-align">
+                            <label>Max File Size: 16 MB <br> Recommended Image Dimensions: 400 x 400</label>
+                        </div>
                     </div>
                 </div>
             </div>
