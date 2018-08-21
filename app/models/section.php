@@ -85,6 +85,7 @@ class section extends Model {
         $statement->bindParam(':description', $this->get('description'));
         $statement->bindParam(':background_image', $this->get('background_image'));
         $statement->execute();
+        $this->set('id', $this->db->lastInsertId());
         return $this;
     }
 
