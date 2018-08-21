@@ -4,14 +4,15 @@ namespace App\Models;
 class product extends Model {
     private $data;
     public $default_image = "https://www.paa-automation.com/wp-content/themes/paa-theme/assets/img/paa-automation-logo.png";
+    private $images_table;
 
     protected function init($data) {
+        $this->images_table = new product_imagesTable($this->container);
         foreach($data as $key => $value) {
-            if($key == "images" && !is_array($value)) {
-                $value = explode('|', $value);
-            }
             $this->data[$key] = $value;
         }
+        $this->data['main_image'] = $this->images_table->getMainImage($this->data['id']);
+        $this->data['images'] = $this->images_table->getImages($this->data['id']);
         $this->setCssId();
         return $this;
     }
@@ -31,16 +32,10 @@ class product extends Model {
     }
 
     public function get($key) {
-        if($key == "images" && !is_array($this->data[$key])) {
-            $this->data[$key] = explode('|', $this->data[$key]);
-        }
         return $this->data[$key] ?? null;
     }
 
     public function set($key, $value) {
-        if($key == "images" && !is_array($value)) {
-            $value = explode('|', $value);
-        }
         $this->data[$key] = $value;
         return $this;
     }

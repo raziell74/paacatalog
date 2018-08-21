@@ -42,11 +42,11 @@
                 <div id="<?=$section->cssId?>-<?=$product->cssId?>-images-edit" class="col s12">
                     <?php if($product->main_image) { ?>
                         <div class="col s12 m6">
-                            <img src="<?=$product->main_image?>" class="responsive-img">
+                            <img src="<?=$product->main_image->url?>" class="responsive-img">
                         </div>
                     <?php } ?>
                     <div class="input-field col s6">
-                        <input placeholder="Main Image URL" id="<?=$section->cssId?>-<?=$product->cssId?>-main_image" name="main_image" type="text" class="validate" value="<?=$product->main_image?>">
+                        <input placeholder="Main Image URL" id="<?=$section->cssId?>-<?=$product->cssId?>-main_image" name="main_image" type="text" class="validate" value="<?=$product->main_image->url?>">
                         <label for="<?=$section->cssId?>-<?=$section->cssId?>-main_image">Main Image URL</label>
                     </div>
                 </div>
