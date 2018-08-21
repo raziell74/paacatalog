@@ -41,6 +41,10 @@ class product extends Model {
     }
 
     public function delete() {
+        $images = $this->get('images');
+        foreach($images as $image) {
+            $image->delete();
+        }
         $this->db->query("DELETE FROM products WHERE id=" . $this->get('id'));
         return true;
     }
