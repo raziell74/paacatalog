@@ -9,6 +9,7 @@ $container = $app->getContainer();
  * @usage	$this->view->render($response, "/hello.php", $args);
  */
 $container['view'] = new PhpRenderer(__DIR__ . "/views");
+$container['images_dir'] = __DIR__ . '/../public/images';
 
 /**
  * MonoLog Logging service

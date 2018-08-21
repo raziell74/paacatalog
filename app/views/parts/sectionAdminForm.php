@@ -1,5 +1,5 @@
 <?php $savePath = $section->id == 0 ? '/add/section' : '/save/section/' . $section->id; ?>
-<form action="<?=$savePath?>" method="post" id="<?=$section->cssId?>-edit" class="z-depth-5 hide">
+<form action="<?=$savePath?>" method="post" id="<?=$section->cssId?>-edit" enctype="multipart/form-data" class="z-depth-5 hide">
     <div class="parallax-container valign-wrapper orange-text">
         <div class="section no-pad-bot">
             <div class="container">
@@ -17,10 +17,23 @@
                     </div>
                 </div>
 
-                <div class="row center">
-                    <div class="input-field col s6">
-                        <input placeholder="Background Image Url" id="<?=$section->cssId?>-background_image" name="background_image" type="text" class="validate" value="<?=$section->background_image?>">
-                        <label for="<?=$section->cssId?>-background_image">Header Background Image</label>
+                <div class="row">
+                    <div class="col s12">
+                        <label for="dropify-test">Header Background Image</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <input  id="<?=$section->cssId?>-background_image"
+                                name="background_image"
+                                type="file"
+                                class="dropify"
+                                data-min-width="1200"
+                                data-min-height="350"
+                                <?php if($section->background_image) { ?>
+                                    data-default-file="<?=$section->background_image?>"
+                                <?php } ?>
+                        />
                     </div>
                 </div>
             </div>
@@ -30,9 +43,11 @@
     <div class="container">
         <div class="section">
             <div class="row">
+                <div class="col s12">
+                    <label>Section Description</label>
+                </div>
                 <div class="input-field col s12 section-description">
                     <textarea id="<?=$section->cssId?>-description" name="description"><?=$section->description?></textarea>
-                    <label for="<?=$section->cssId?>-description" style="top: -45px;">Section Description</label>
                 </div>
             </div>
             <div class="row center">
