@@ -86,8 +86,7 @@ class product extends Model {
         $statement->bindParam(':specs', $this->get('specs'));
         $statement->bindParam(':tech', $this->get('tech'));
         $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
-        $this->set('id', $result['id']);
+        $this->set('id', $this->db->lastInsertId());
         return $this;
     }
 
