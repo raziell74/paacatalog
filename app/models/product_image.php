@@ -45,7 +45,7 @@ class product_image extends Model {
 
     public function toggleAsMainImage() {
         $current_main = $this->images_table->getMainImage($this->get('product_id'));
-        $current_main->delete();
+        if($current_main) $current_main->delete();
         $this->db->query("
             UPDATE
                 `product_images`
