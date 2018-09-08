@@ -17,23 +17,6 @@
 <body>
     <?php include(__DIR__ . "/parts/nav.php"); ?>
 
-    <div id="index-banner" class="parallax-container">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <h1 class="header center white-text text-lighten-2">Peak Analysis & Automation Catalog</h1>
-            </div>
-        </div>
-        <div class="parallax"><img src="<?=encoded_img("/images/overlord-slider.jpg", $is_admin); ?>"></div>
-    </div>
-
-    <div class="container">
-        <div class="section">
-            <div class="row center">
-                <h5 class="header col s12">Supplying our own product range of robotic workcells, laboratory robots and scheduling software to automate a variety of applications.</h5>
-            </div>
-        </div>
-    </div>
-
     <?php
         foreach($sections as $section) {
             include(__DIR__ . "/parts/section.php");
