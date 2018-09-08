@@ -1,4 +1,11 @@
 $(document).ready(function(){
+    //var toastHTML = '<span>A new version is available</span><a href="#" class="btn-flat toast-action">Update Now</a>';
+    //toastInstance = M.toast({
+    //    html: toastHTML,
+    //    classes: 'green darken-1 white-text rounded',
+    //    displayLength: 30000
+    //});
+    
     $('.section-edit').click(function(evnt){
         var sectionId = $(this).attr('data-section'),
             sectionPreview = $('#' + sectionId)
@@ -105,7 +112,7 @@ $(document).ready(function(){
             mainImageDefaultFile = mainImage.attr('data-default-file'),
             mainImageId = mainImage.attr('data-image-id');
 
-            M.toast({html: 'Main Image Updated', classes: 'green lighten-1 white-text'});
+            M.toast({html: 'Main Image Updated', classes: 'green darken-1 white-text'});
             thisImage.attr('data-default-file', mainImageDefaultFile);
             thisImage.attr('data-image-id', mainImageId);
             thisImage.data('dropify').destroy();
