@@ -1,4 +1,3 @@
-<?php $product = $new_product; ?>
 <div id="<?=$product->cssId?>" class="col s12 m4">
     <div class="card">
         <div class="card-image center">
@@ -18,4 +17,4 @@
     </div>
 </div>
 
-<?php include(__DIR__ . "/productAdminModal.php"); ?>
+<?=$view->getPart('productAdminModal', $view_vars)?>

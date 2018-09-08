@@ -8,7 +8,7 @@
                 <?php foreach($sections as $section) { ?>
                     <li><a href="#<?=$section->cssId?>"><?=$section->name?></a></li>
                 <?php } ?>
-                <?php if($is_admin) { ?>
+                <?php if($view->isAdmin) { ?>
                     <li><a href="/download" target="_blank" class="waves-effect waves-light btn"><i class="material-icons right">file_download</i>Download Catalog</a></li>
                 <?php } ?>
             </ul>

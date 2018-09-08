@@ -9,7 +9,7 @@
             </ul>
         </div>
         <div class="col s12 m6">
-            <img src="<?=encoded_img($product->main_image, $is_admin); ?>" class="responsive-img">
+            <img src="<?=$view->embedImage($product->main_image); ?>" class="responsive-img">
         </div>
         <div class="col s12 m6 modal-tabs">
             <div id="<?=$product->cssId?>-overview" class="col s12">
