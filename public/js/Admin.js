@@ -66,7 +66,66 @@ $(document).ready(function(){
         '//www.tinymce.com/css/codepen.min.css']
     });
 
-    $('.dropify').dropify();
+    dropifyobj = $('.dropify').dropify();
+
+    dropifyobj.on('dropify.beforeClear', function(event, obj){
+        if(!$(obj.element).attr('data-default-file')) return true;
+
+        var image_id = $(obj.element).attr('data-image-id');
+
+        if(confirm("Do you really want to delete this image?")) {
+            $.ajax({
+                async: false,
+                url: "/delete/product/image/" + image_id
+            }).done(function() {
+                M.toast({html: 'Image Deleted', classes: 'red darken-4 white-text'});
+            });
+
+            return true;
+        }
+
+        return false;
+    });
+
+    dropifyobj.on('dropify.afterClear', function(event, obj){
+        var input = $(obj.element);
+        if(input.hasClass('main-image')) return;
+        input.parents('.add-image').remove();
+    });
+
+    $('.toggle-main-image').click(function(){
+        var thisImage = $(this).parents('.add-image').find('input'),
+            thisImageId = thisImage.attr('data-image-id'),
+            mainImage = $(this).parents('.image-manager').find('input.main-image');
+
+        $.ajax({
+            url: "/product/set-main-image/" + thisImageId
+        }).done(function() {
+            var thisImageDefaultFile = thisImage.attr('data-default-file'),
+            mainImageDefaultFile = mainImage.attr('data-default-file'),
+            mainImageId = mainImage.attr('data-image-id');
+
+            M.toast({html: 'Main Image Updated', classes: 'green lighten-1 white-text'});
+            thisImage.attr('data-default-file', mainImageDefaultFile);
+            thisImage.attr('data-image-id', mainImageId);
+            thisImage.data('dropify').destroy();
+
+            mainImage.attr('data-default-file', thisImageDefaultFile);
+            mainImage.attr('data-image-id', thisImageId);
+            mainImage.data('dropify').destroy();
+
+            var newImage = thisImage.clone(),
+                newMainImage = mainImage.clone();
+
+            thisImage.parent().prepend(newImage);
+            thisImage.remove();
+            mainImage.parent().prepend(newMainImage);
+            mainImage.remove();
+
+            newImage.dropify();
+            newMainImage.dropify();
+        });
+    });
 
     $('.add-product-image').click(function(evnt){
         console.log('test');

@@ -42,7 +42,7 @@
                                 <textarea id="<?=$section->cssId?>-<?=$product->cssId?>-tech" name="tech"><?=$product->tech?></textarea>
                             </div>
                         </div>
-                        <div id="<?=$section->cssId?>-<?=$product->cssId?>-images-edit" class="col s12">
+                        <div id="<?=$section->cssId?>-<?=$product->cssId?>-images-edit" class="col s12 image-manager">
                             <div class="row">
                                 <div class="col s6">
                                     <label for="<?=$product->cssId?>-main_image">Main Image</label>
@@ -50,14 +50,15 @@
                             </div>
                             <div class="row">
                                 <div class="col s12">
-                                    <input  id="<?=$product->cssId?>-main_image"
-                                            name="main_image"
+                                    <input  name="images[]"
                                             type="file"
-                                            class="dropify"
+                                            class="dropify main-image"
                                             data-max-file-size="16M"
                                             <?php if($product->main_image) { ?>
                                                 data-default-file="<?=$product->main_image->url?>"
                                             <?php } ?>
+                                            data-image-id="<?=$product->main_image->id?>"
+
                                     />
                                 </div>
                             </div>
@@ -67,6 +68,21 @@
                                 </div>
                             </div>
                             <div class="row additonal-images">
+                                <?php foreach($product->images as $image) { ?>
+                                    <?php if($image->id == $product->main_image->id) continue; ?>
+                                    <div class="col s3 add-image" style="margin-bottom: 20px; position: relative;">
+                                        <input  name="images[]"
+                                                type="file"
+                                                class="dropify"
+                                                data-default-file="<?=$image->url?>"
+                                                data-max-file-size="16M"
+                                                data-image-id="<?=$image->id?>"
+                                        />
+                                        <div class="center" style="width:100%; position:absolute; bottom: -10px; padding-right: 20px; z-index: 900;">
+                                            <a class="btn-small waves-effect waves-light blue toggle-main-image">Make Main Image</a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                                 <div class="col s3 hide additonal-image-skeleton" style="margin-bottom: 20px;">
                                     <input  name="images[]"
                                             type="file"

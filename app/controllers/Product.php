@@ -10,7 +10,7 @@ class Product  extends controller {
         $productsTable = new productsTable($this->container);
         $data = $request->getParsedBody();
         $product = $productsTable->addProduct($data);
-        $this->processMainImage($request, $product);
+        $this->processImages($request, $product);
         return $response->withRedirect('/#' . $product->cssId);
     }
 
@@ -22,7 +22,7 @@ class Product  extends controller {
             $product->set($key, $value);
         }
         $product->update();
-        $this->processMainImage($request, $product);
+        $this->processImages($request, $product);
         return $response->withRedirect('/#' . $product->cssId);
     }
 
@@ -33,19 +33,43 @@ class Product  extends controller {
         return $response->withRedirect('/');
     }
 
-    private function processMainImage(Request $request, $product) {
-        $data = [];
-        $uploaded_files = $request->getUploadedFiles();
-        $main_image_file = $uploaded_files['main_image'];
+    public function deleteProductImage(Request $request, Response $response, $args) {
+        $imagesTable = new product_imagesTable($this->container);
+        $image = $imagesTable->get($args['id']);
+        $image->delete();
+        return $response->withRedirect('/');
+    }
 
-        if(!empty($uploaded_files) && $main_image_file->getError() === UPLOAD_ERR_OK) {
-            $filename = $this->moveUploadedFile($this->imagesDir, $main_image_file);
-            $imagesTable = new product_imagesTable($this->container);
-            $data['url'] = "/images/" . $filename;
-            $data['encoded_image'] = $this->getEncodedImage($this->imagesDir . "/" . $filename);
-            $data['product_id'] = $product->id;
-            $image = $imagesTable->addProductImage($data);
-            $image->toggleAsMainImage();
+    public function setProductMainImage(Request $request, Response $response, $args) {
+        $imagesTable = new product_imagesTable($this->container);
+        $image = $imagesTable->get($args['id']);
+        $image->setAsMainImage();
+        return $response->withRedirect('/');
+    }
+
+    private function processImages(Request $request, $product) {
+        $uploaded_files = $request->getUploadedFiles();
+        if(empty($uploaded_files)) return;
+
+        $images_table = new product_imagesTable($this->container);
+        $image_files = $uploaded_files['images'];
+        unset($image_files[count($image_files) - 1]);
+
+        foreach($image_files as $index => $image_file) {
+            if($image_file->getError() === UPLOAD_ERR_OK) {
+                $filename = $this->moveUploadedFile($this->imagesDir, $image_file);
+                $data = [
+                    'url' => "/images/" . $filename,
+                    'encoded_image' => $this->getEncodedImage($this->imagesDir . "/" . $filename),
+                    'product_id' => $product->id
+                ];
+
+                $image = $images_table->addProductImage($data);
+
+                if($index == 0) {
+                    $image->setAsMainImage();
+                }
+            }
         }
     }
 
