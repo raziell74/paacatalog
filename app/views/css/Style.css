@@ -86,3 +86,11 @@ h1.header.center, h5.header.col.s12.light {
 .modal {
   max-height: 85%;
 }
+
+.btn-floating:hover,
+.btn-large:hover,
+.btn:hover,
+.btn-small:hover {
+  opacity: 0.7;
+  text-shadow: rgba(0, 0, 0, 0.75) 4px 4px 4px;
+}
