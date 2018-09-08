@@ -39,7 +39,7 @@
 
 <div class="container">
     <div class="section">
-        <div class="row">
+        <div class="row product-list">
             <?php if($section->hasProducts()) { ?>
                 <?php foreach($section->products as $product) { ?>
                     <?php include(__DIR__ . "/product.php"); ?>

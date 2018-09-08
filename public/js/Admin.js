@@ -29,6 +29,18 @@ $(document).ready(function(){
         sectionEditors.addClass('hide');
     });
 
+    $('.product-edit').click(function(evnt){
+        var editorId = $(this).attr('data-editor-id');
+        $(editorId).removeClass('hide');
+        $(this).parents('.product-list').find('.card').addClass('hide');
+    });
+
+    $('.product-cancel-edit').click(function(evnt){
+        var editorId = $(this).attr('data-editor-id');
+        $(editorId).addClass('hide');
+        $(this).parents('.product-list').find('.card').removeClass('hide');
+    });
+
     tinymce.init({
         selector: 'textarea',
         height: 500,
@@ -43,6 +55,7 @@ $(document).ready(function(){
         '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
         '//www.tinymce.com/css/codepen.min.css']
     });
+
     $('.dropify').dropify();
 });
 

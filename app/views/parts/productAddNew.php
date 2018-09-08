@@ -5,7 +5,7 @@
             <div class="valign-wrapper" style="height: 100%; width: 100%; position: absolute;">
                 <div class="container">
                     <div class="row center">
-                        <a class="btn-floating btn-large waves-effect waves-light pulse blue product-edit modal-trigger" href="#<?=$section->cssId?>-<?=$product->cssId?>-modal-edit"><i class="material-icons">add</i></a>
+                        <a class="btn-floating btn-large waves-effect waves-light pulse blue product-edit" data-editor-id="#<?=$section->cssId?>-<?=$product->cssId?>-edit"><i class="material-icons">add</i></a>
                     </div>
                 </div>
             </div>
@@ -14,7 +14,8 @@
         </div>
         <div class="card-action">
             <a style="opacity:0;" class="btn-floating btn-large waves-effect waves-light pulse blue product-edit modal-trigger" href="#new-product-modal"><i class="material-icons">add</i></a>
-            <?php include(__DIR__ . "/productAdminModal.php"); ?>
         </div>
     </div>
 </div>
+
+<?php include(__DIR__ . "/productAdminModal.php"); ?>
