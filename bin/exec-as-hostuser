@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eu
+cmdArray=(su hostuser -c \'"$@"\')
+cmd="${cmdArray[@]}"
+sudo docker-compose exec web sh -c "
+  lines=\$(grep hostuser /etc/passwd | wc -l)
+  if [ \$lines -eq 0 ]; then
+    useradd -u $UID hostuser
+  fi
+  ${cmd[@]}
+"
