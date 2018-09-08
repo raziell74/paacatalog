@@ -62,6 +62,29 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col s6">
+                                    <label>Additional Images</label>
+                                </div>
+                            </div>
+                            <div class="row additonal-images">
+                                <div class="col s3 hide additonal-image-skeleton" style="margin-bottom: 20px;">
+                                    <input  name="images[]"
+                                            type="file"
+                                            data-max-file-size="16M"
+                                    />
+                                </div>
+                                <div class="col s3">
+                                    <div class="valign-wrapper" style="height: 200px; border: 2px solid #e0e0e0; padding: 5px 10px;">
+                                        <div class="center col s12">
+                                            <a class="btn-floating btn-large waves-effect waves-light pulse blue add-product-image"><i class="material-icons">add</i></a>
+                                            <div>
+                                                <label>Add Image</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col s12 right right-align">
                                     <label>Max File Size: 16 MB <br> Recommended Image Dimensions: 400 x 400</label>
                                 </div>

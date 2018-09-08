@@ -67,6 +67,19 @@ $(document).ready(function(){
     });
 
     $('.dropify').dropify();
+
+    $('.add-product-image').click(function(evnt){
+        console.log('test');
+        var container = $(this).parents('.additonal-images'),
+            skeleton = container.find('.additonal-image-skeleton')
+                                .clone()
+                                .removeClass('hide')
+                                .removeClass('additonal-image-skeleton')
+                                .addClass('add-image');
+        console.log(container);
+        container.prepend(skeleton);
+        skeleton.find('input').dropify();
+    });
 });
 
 $(window).load(function(){
