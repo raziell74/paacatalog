@@ -22,7 +22,7 @@
             <?php } ?>
         </div>
 
-        <div class="container">
+        <div id="<?=$section->cssId?>-product-list-anchor" class="container">
             <div class="section">
                 <div class="row">
                     <div class="col s12 center section-description">
