@@ -41,6 +41,16 @@ $(document).ready(function(){
         $(this).parents('.product-list').find('.card').removeClass('hide');
     });
 
+    $('.footer-edit').click(function(evnt){
+        $('.footer-admin').removeClass('hide');
+        $('#footer').addClass('hide');
+    });
+
+    $('.footer-cancel-edit').click(function(evnt){
+        $('.footer-admin').addClass('hide');
+        $('#footer').removeClass('hide');
+    });
+
     tinymce.init({
         selector: 'textarea',
         height: 500,

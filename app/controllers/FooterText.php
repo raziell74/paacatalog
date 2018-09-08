@@ -10,6 +10,6 @@ class FooterText  extends controller {
         $footerText = $footerTextTable->getFooterText();
         $data = $request->getParsedBody();
         $footerText->set('text', $data['text'])->update();
-        return $response->withRedirect('/#footer');
+        return $response->withRedirect('/#footer-anchor');
     }
 }
