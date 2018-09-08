@@ -5,7 +5,7 @@
                 <?=$footer_text->text?>
             </div>
             <?php if($view->isAdmin) { ?>
-                <a href="#footer-anchor" class="btn-floating btn-large waves-effect waves-light pulse blue footer-edit"><i class="material-icons">edit</i></a>
+                <a href="#footer-anchor" class="btn-floating btn-large waves-effect waves-light blue footer-edit"><i class="material-icons">edit</i></a>
             <?php } ?>
         </div>
 

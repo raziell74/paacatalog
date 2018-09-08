@@ -4,8 +4,8 @@
             <div class="section no-pad-bot">
                 <?php if($view->isAdmin) { ?>
                     <div class="right crud-buttons">
-                        <button data-section="<?=$section->cssId?>" class="btn-floating btn-large waves-effect waves-light pulse blue section-edit"><i class="material-icons">edit</i></button>
-                        <button data-section="<?=$section->id?>"class="btn-floating btn-large waves-effect waves-light pulse red section-delete"><i class="material-icons">delete</i></button>
+                        <button data-section="<?=$section->cssId?>" class="btn-floating btn-large waves-effect waves-light blue section-edit"><i class="material-icons">edit</i></button>
+                        <button data-section="<?=$section->id?>"class="btn-floating btn-large waves-effect waves-light red section-delete"><i class="material-icons">delete</i></button>
                     </div>
                 <?php } ?>
                 <div class="container">

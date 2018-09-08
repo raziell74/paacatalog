@@ -8,9 +8,9 @@
                 <li class="tab col s4"><a href="#<?=$product->cssId?>-technical">Tech</a></li>
             </ul>
         </div>
-        <div class="col s12 m6">
+        <!--<div class="col s12 m6">
             <img src="<?=$view->embedImage($product->main_image); ?>" class="responsive-img">
-        </div>
+        </div>-->
         <div class="col s12 m6 modal-tabs">
             <div id="<?=$product->cssId?>-overview" class="col s12">
                 <?=$product->overview?>
