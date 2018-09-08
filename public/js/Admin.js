@@ -2,8 +2,8 @@ $(document).ready(function(){
     //var toastHTML = '<span>A new version is available</span><a href="#" class="btn-flat toast-action">Update Now</a>';
     //toastInstance = M.toast({
     //    html: toastHTML,
-    //    classes: 'green darken-1 white-text rounded',
-    //    displayLength: 30000
+    //    classes: 'green white-text pulse',
+    //    displayLength: 60000
     //});
     
     $('.section-edit').click(function(evnt){
@@ -138,13 +138,13 @@ $(document).ready(function(){
         console.log('test');
         var container = $(this).parents('.additonal-images'),
             skeleton = container.find('.additonal-image-skeleton')
-                                .clone()
-                                .removeClass('hide')
-                                .removeClass('additonal-image-skeleton')
-                                .addClass('add-image');
+            newImage = skeleton.clone()
+                               .removeClass('hide')
+                               .removeClass('additonal-image-skeleton')
+                               .addClass('add-image');
         console.log(container);
-        container.prepend(skeleton);
-        skeleton.find('input').dropify();
+        newImage.insertBefore(skeleton);
+        newImage.find('input').dropify();
     });
 });
 
