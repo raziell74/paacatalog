@@ -33,7 +33,8 @@ class product_imagesTable extends Model {
                 product_images
             WHERE
                 product_id = :product_id
-            ORDER BY main_image DESC
+            ORDER BY
+                main_image DESC
         ");
         $statement->bindParam(':product_id', $product_id);
         $statement->execute();
