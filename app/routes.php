@@ -14,6 +14,8 @@ $app->get('/delete/product/{id}', Controllers\Product::class . ':deleteProduct')
 $app->post('/save/product/{id}', Controllers\Product::class . ':updateProduct');
 $app->post('/add/product', Controllers\Product::class . ':addProduct');
 
+$app->post('/save/footer', Controllers\FooterText::class . ':update');
+
 $app->get('/sample', Controllers\Preview::class . ':index');
 
 $app->get('/download', Controllers\Admin::class . ':download');
