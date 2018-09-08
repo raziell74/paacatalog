@@ -3,6 +3,7 @@ namespace App\Controllers;
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 use App\Models\sectionsTable;
+use App\Models\footerTextTable;
 
 class Admin  extends controller {
     public function home(Request $request, Response $response) {
@@ -22,11 +23,14 @@ class Admin  extends controller {
                     ->set('specs', "")
                     ->set('tech', "")
                     ->set('main_image', "");
+        $footer_text_table = new footerTextTable($this->container);
+        $footer_text = $footer_text_table->getFooterText();
         $vars = [
             'is_admin' => true,
             'sections' => $sections->getAll(),
             'new_section' => $new_section,
-            'new_product' => $new_product
+            'new_product' => $new_product,
+            'footer_text' => $footer_text
         ];
         return $this->view->render($response, "/catalog.php", $vars);
     }

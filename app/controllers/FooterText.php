@@ -6,7 +6,7 @@ use App\Models\footerTextTable;
 
 class FooterText  extends controller {
     public function update(Request $request, Response $response, $args) {
-        $footerTextTable = new sectionsTable($this->container);
+        $footerTextTable = new footerTextTable($this->container);
         $footerText = $footerTextTable->getFooterText();
         $data = $request->getParsedBody();
         $footerText->set('text', $data['text'])->update();
