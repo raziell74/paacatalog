@@ -35,6 +35,7 @@ class product_imagesTable extends Model {
                 product_id = :product_id
             ORDER BY
                 main_image DESC
+            LIMIT 1
         ");
         $statement->bindParam(':product_id', $product_id);
         $statement->execute();
