@@ -2,10 +2,10 @@
     <div id="<?=$section->cssId?>" class="preview-display">
         <div class="parallax-container valign-wrapper orange-text">
             <div class="section no-pad-bot">
-                <?php if($is_admin) { ?>
+                <?php if($view->isAdmin) { ?>
                     <div class="right crud-buttons">
-                        <button data-section="<?=$section->cssId?>" class="btn-floating btn-large waves-effect waves-light pulse blue section-edit"><i class="material-icons">edit</i></button>
-                        <button data-section="<?=$section->id?>"class="btn-floating btn-large waves-effect waves-light pulse red section-delete"><i class="material-icons">delete</i></button>
+                        <button data-section="<?=$section->cssId?>" class="btn-floating btn-large waves-effect waves-light blue section-edit"><i class="material-icons">edit</i></button>
+                        <button data-section="<?=$section->id?>"class="btn-floating btn-large waves-effect waves-light red section-delete"><i class="material-icons">delete</i></button>
                     </div>
                 <?php } ?>
                 <div class="container">
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <?php if($section->background_image) { ?>
-                <div class="parallax"><img class="section-background-image" src="<?=encoded_img($section->background_image, $is_admin)?>" alt="Unsplashed background img 2"></div>
+                <div class="parallax"><img class="section-background-image" src="<?=$view->embedImage($section->background_image)?>" alt="Unsplashed background img 2"></div>
             <?php } ?>
         </div>
 
@@ -33,19 +33,16 @@
         </div>
     </div>
 
-    <?php if($is_admin) include(__DIR__ . "/sectionAdminForm.php"); ?>
+    <?=$view->getPart('sectionAdminForm', ['admin_only' => true, 'section' => $section])?>
 </div>
-
 
 <div class="container">
     <div class="section">
         <div class="row product-list">
-            <?php if($section->hasProducts()) { ?>
-                <?php foreach($section->products as $product) { ?>
-                    <?php include(__DIR__ . "/product.php"); ?>
-                <? } ?>
-            <?php } ?>
-            <?php if($is_admin) include(__DIR__ . "/productAddNew.php"); ?>
+            <?php foreach($section->products as $product) {
+                $view->getPart('product', ['section' => $section, 'product' => $product]);
+            } ?>
+            <?=$view->getPart('productAddNew', ['admin_only' => true, 'section' => $section, 'product' => $new_product])?>
         </div>
     </div>
 </div>

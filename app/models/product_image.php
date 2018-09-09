@@ -43,9 +43,24 @@ class product_image extends Model {
         return true;
     }
 
-    public function toggleAsMainImage() {
+    public function removeAsMainImage() {
+        $this->db->query("
+            UPDATE
+                `product_images`
+            SET
+                `main_image` = 0
+            WHERE
+                id = " . $this->get('id')
+        );
+        return $this;
+    }
+
+    public function setAsMainImage() {
         $current_main = $this->images_table->getMainImage($this->get('product_id'));
-        if($current_main) $current_main->delete();
+        if($current_main && $current_main->id != $this->get('id')) {
+            $current_main->removeAsMainImage();
+        }
+
         $this->db->query("
             UPDATE
                 `product_images`

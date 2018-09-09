@@ -32,8 +32,10 @@ class product_imagesTable extends Model {
             FROM
                 product_images
             WHERE
-                product_id = :product_id AND
-                main_image = 1
+                product_id = :product_id
+            ORDER BY
+                main_image DESC
+            LIMIT 1
         ");
         $statement->bindParam(':product_id', $product_id);
         $statement->execute();
