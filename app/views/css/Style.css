@@ -94,3 +94,33 @@ h1.header.center, h5.header.col.s12.light {
   opacity: 0.9;
   text-shadow: rgba(0, 0, 0, 0.75) 4px 4px 4px;
 }
+
+.image-slide-show {
+  width: 360px;
+  padding: 0px 5px;
+  border: 2px solid #d6d6d6;
+  margin: 20px 10px 10px 0px;
+}
+
+.image-slide-show.s12 {
+  width: 100%;
+  border: none;
+  margin: 0px;
+}
+
+.image-slide-show .modal-tabs {
+  border-bottom: 2px solid #d6d6d6;
+  margin-bottom: 2px;
+}
+
+.image-slide-show .modal-tabs img {
+  width: 350px;
+  height: 350px;
+  display: inline-block;
+}
+
+.image-slide-show.s12 .thumbnail,
+.image-slide-show.s12 .tabs,
+.image-slide-show.s12 .tab {
+  height: 100px;
+}
