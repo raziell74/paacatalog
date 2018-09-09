@@ -1,6 +1,6 @@
 <div id="<?=$product->cssId?>-modal" class="modal modal-fixed-footer">
     <div class="modal-content">
-        <h4><?=$product->name?></h4>
+        <h4><div class="embeded-image <?=$product->main_image->cssId?> thumbnail left" style="margin-right: 5px; margin-top: -5px;"></div><?=$product->name?></h4>
         <div class="col s12">
             <ul class="tabs">
                 <li class="tab col l4 s3"><a href="#<?=$product->cssId?>-overview">Overview</a></li>
