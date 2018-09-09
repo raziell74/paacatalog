@@ -8,7 +8,6 @@ $(document).ready(function(){
                                .removeClass('hide')
                                .removeClass('additonal-image-skeleton')
                                .addClass('add-image');
-        console.log(container);
         newImage.insertBefore(skeleton);
         newImage.find('input').dropify();
     });
