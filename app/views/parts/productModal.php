@@ -63,6 +63,6 @@
         </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green red ligten-4 btn-small">Close</a>
+      <a href="#!" class="modal-close waves-effect waves-green blue ligten-4 btn">Back to browsing products</a>
     </div>
 </div>
