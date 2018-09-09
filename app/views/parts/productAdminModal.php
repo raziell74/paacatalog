@@ -1,6 +1,6 @@
 <?php $savePath = $product->id == 0 ? '/add/product' : '/save/product/' . $product->id; ?>
 
-<div id="<?=$section->cssId?>-<?=$product->cssId?>-edit" class="z-depth-5 clearfix hide">
+<div id="<?=$section->cssId?>-<?=$product->cssId?>-edit" class="z-depth-5 clearfix scale-transition scale-out hide">
     <div class="container">
         <div class="row">
             <div class="col s12"><br></div>

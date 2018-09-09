@@ -39,13 +39,20 @@ $(document).ready(function(){
     $('.product-edit').click(function(evnt){
         var editorId = $(this).attr('data-editor-id');
         $(editorId).removeClass('hide');
+        setTimeout(function(){
+            $(editorId).removeClass('scale-out');
+        }, 100);
         $(this).parents('.product-list').find('.card').addClass('hide');
     });
 
     $('.product-cancel-edit').click(function(evnt){
-        var editorId = $(this).attr('data-editor-id');
-        $(editorId).addClass('hide');
-        $(this).parents('.product-list').find('.card').removeClass('hide');
+        var editorId = $(this).attr('data-editor-id'),
+            cards = $(this).parents('.product-list').find('.card');
+        $(editorId).addClass('scale-out');
+        setTimeout(function(){
+            $(editorId).addClass('hide');
+            cards.removeClass('hide');
+        }, 300);
     });
 
     $('.footer-edit').click(function(evnt){
