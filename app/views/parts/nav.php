@@ -14,8 +14,9 @@
             </ul>
 
             <ul id="nav-mobile" class="sidenav">
+                <li><a class="subheader">Sections</a></li>
                 <?php foreach($sections as $section) { ?>
-                    <li><a href="#<?=$section->cssId?>"><?=$section->name?></a></li>
+                    <li><a href="#<?=$section->cssId?>" class="sidenav-close"><?=$section->name?></a></li>
                 <?php } ?>
             </ul>
             <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
