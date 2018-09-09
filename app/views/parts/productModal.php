@@ -9,15 +9,12 @@
                 <li class="tab col s3 hide-on-large"><a href="#<?=$product->cssId?>-images">images</a></li>
             </ul>
         </div>
-        <!--<div class="col s12 m6">
-            <img src="<?=$view->embedImage($product->main_image); ?>" class="responsive-img">
-        </div>-->
         <div class="col s12">
             <div class="left hide-on-med-and-down image-slide-show">
                 <div class="modal-tabs">
                     <?php foreach($product->images as $image) { ?>
                         <div id="<?=$image->cssId?>-medium" class="center">
-                            <img src="<?=$view->embedImage($image); ?>">
+                            <div class="embeded-image <?=$image->cssId?>"></div>
                         </div>
                     <?php } ?>
                 </div>
@@ -25,7 +22,7 @@
                     <?php foreach($product->images as $image) { ?>
                         <li class="tab col s3">
                             <a href="#<?=$image->cssId?>-medium">
-                                <img src="<?=$view->embedImage($image); ?>" class="responsive-img thumbnail">
+                                <div class="embeded-image <?=$image->cssId?> responsive-img thumbnail"></div>
                             </a>
                         </li>
                     <?php } ?>
@@ -47,7 +44,7 @@
                         <div class="modal-tabs">
                             <?php foreach($product->images as $image) { ?>
                                 <div id="<?=$image->cssId?>-mobile" class="center">
-                                    <img src="<?=$view->embedImage($image); ?>">
+                                    <div class="embeded-image <?=$image->cssId?>"></div>
                                 </div>
                             <?php } ?>
                         </div>
@@ -55,7 +52,7 @@
                             <?php foreach($product->images as $image) { ?>
                                 <li class="tab col s3">
                                     <a href="#<?=$image->cssId?>-mobile">
-                                        <img src="<?=$view->embedImage($image); ?>" class="responsive-img thumbnail">
+                                        <div class="embeded-image <?=$image->cssId?> responsive-img thumbnail"></div>
                                     </a>
                                 </li>
                             <?php } ?>

@@ -1,7 +1,7 @@
-<div id="<?=$product->cssId?>" class="col s12 m4">
+<div id="<?=$product->cssId?>" class="col s12 m6 l4">
     <div class="card">
         <div class="card-image center">
-            <img width="365" height="365" src="<?=$view->embedImage($product->main_image ?: $product->default_image)?>">
+            <div class="embeded-image <?=$product->main_image->cssId?>"></div>
             <span class="card-title"><?=$product->name?></span>
         </div>
         <div class="card-action">
