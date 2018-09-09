@@ -105,7 +105,7 @@ h1.header.center, h5.header.col.s12.light {
   display: inline-block;
 }
 
-.image-slide-show .thumbnail {
+.thumbnail {
   height: 50px;
   width: 50px;
 }
@@ -127,6 +127,13 @@ h1.header.center, h5.header.col.s12.light {
 .parallax-container .header {
     margin-top: 0px;
 }
+
+.modal {
+    width: 85%;
+    height: 90% !important;
+    top: 5% !important;
+    max-height: 90%;
+  }
 
 @media only screen and (max-width : 992px) {
   .parallax-container {
