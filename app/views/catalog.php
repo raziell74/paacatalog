@@ -10,6 +10,7 @@
         <!-- Dynamic stylesheets (prints minified version if not in admin) -->
         <?=$view->getCSS('materialize', true)?>
         <?=$view->getCSS('Style')?>
+        <?=$view->getPart('imageStorage', ['sections' => $sections])?>
     </head>
     <body>
         <!-- Top Navigation -->

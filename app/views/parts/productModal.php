@@ -1,6 +1,6 @@
 <div id="<?=$product->cssId?>-modal" class="modal modal-fixed-footer">
     <div class="modal-content">
-        <h4><?=$product->name?></h4>
+        <h4><div class="embeded-image <?=$product->main_image->cssId?> thumbnail left" style="margin-right: 5px; margin-top: -5px;"></div><?=$product->name?></h4>
         <div class="col s12">
             <ul class="tabs">
                 <li class="tab col l4 s3"><a href="#<?=$product->cssId?>-overview">Overview</a></li>
@@ -9,15 +9,12 @@
                 <li class="tab col s3 hide-on-large"><a href="#<?=$product->cssId?>-images">images</a></li>
             </ul>
         </div>
-        <!--<div class="col s12 m6">
-            <img src="<?=$view->embedImage($product->main_image); ?>" class="responsive-img">
-        </div>-->
         <div class="col s12">
             <div class="left hide-on-med-and-down image-slide-show">
                 <div class="modal-tabs">
                     <?php foreach($product->images as $image) { ?>
                         <div id="<?=$image->cssId?>-medium" class="center">
-                            <img src="<?=$view->embedImage($image); ?>">
+                            <div class="embeded-image <?=$image->cssId?>"></div>
                         </div>
                     <?php } ?>
                 </div>
@@ -25,7 +22,7 @@
                     <?php foreach($product->images as $image) { ?>
                         <li class="tab col s3">
                             <a href="#<?=$image->cssId?>-medium">
-                                <img src="<?=$view->embedImage($image); ?>" class="responsive-img thumbnail">
+                                <div class="embeded-image <?=$image->cssId?> responsive-img thumbnail"></div>
                             </a>
                         </li>
                     <?php } ?>
@@ -47,7 +44,7 @@
                         <div class="modal-tabs">
                             <?php foreach($product->images as $image) { ?>
                                 <div id="<?=$image->cssId?>-mobile" class="center">
-                                    <img src="<?=$view->embedImage($image); ?>">
+                                    <div class="embeded-image <?=$image->cssId?>"></div>
                                 </div>
                             <?php } ?>
                         </div>
@@ -55,7 +52,7 @@
                             <?php foreach($product->images as $image) { ?>
                                 <li class="tab col s3">
                                     <a href="#<?=$image->cssId?>-mobile">
-                                        <img src="<?=$view->embedImage($image); ?>" class="responsive-img thumbnail">
+                                        <div class="embeded-image <?=$image->cssId?> responsive-img thumbnail"></div>
                                     </a>
                                 </li>
                             <?php } ?>
@@ -66,6 +63,6 @@
         </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green red ligten-4 btn-small">Close</a>
+      <a href="#!" class="modal-close waves-effect waves-green blue ligten-4 btn">Back to browsing products</a>
     </div>
 </div>
