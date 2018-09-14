@@ -8,7 +8,7 @@
                     </div>
                 </div>
             </div>
-            <img src="https://www.paa-automation.com/wp-content/uploads/2015/08/KiNEDX-Wht-470-Mock-Shadow-2100x3500.jpg" style="opacity: 0">
+            <div class="embeded-image default-image" style="opacity: 0"></div>
             <span class="card-title">Add Product</span>
         </div>
         <div class="card-action">
