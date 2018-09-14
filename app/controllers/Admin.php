@@ -23,10 +23,11 @@ class Admin  extends controller {
 
     public function download(Request $request, Response $response) {
         $sections = new sectionsTable($this->container);
+        $footer_text_table = new footerTextTable($this->container);
         $vars = [
             'view' => new viewHelper(),
             'sections' => $sections->getAll(),
-            'footer_text' => $footer_text
+            'footer_text' => $footer_text_table->getFooterText()
         ];
         $this->view->render($response, "/catalog.php", $vars);
         $downloadResponse = $response->withAddedHeader('Content-disposition', 'attachment; filename=PAA-Catalog.html');
