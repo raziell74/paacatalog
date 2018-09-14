@@ -12,6 +12,19 @@ class product extends Model {
             $this->data[$key] = $value;
         }
         $this->data['main_image'] = $this->images_table->getMainImage($this->data['id']);
+
+        if(!$this->data['main_image']) {
+            $defaultImageData = [
+                'id' => 0,
+                'product_id' => $this->data['id'],
+                'main_image' => 1,
+                'url' => $this->default_image
+            ];
+            $defaultImage = new \App\Models\product_image($this->container, $defaultImageData);
+            $defaultImage->set('cssId', 'default-image');
+            $this->data['main_image'] = $defaultImage;
+        }
+
         $this->data['images'] = $this->images_table->getImages($this->data['id']);
         $this->setCssId();
         return $this;

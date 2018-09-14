@@ -10,24 +10,26 @@
             </ul>
         </div>
         <div class="col s12">
-            <div class="left hide-on-med-and-down image-slide-show">
-                <div class="modal-tabs">
-                    <?php foreach($product->images as $image) { ?>
-                        <div id="<?=$image->cssId?>-medium" class="center">
-                            <div class="embeded-image <?=$image->cssId?>"></div>
-                        </div>
-                    <?php } ?>
+            <?php if(!empty($product->images)) { ?>
+                <div class="left hide-on-med-and-down image-slide-show">
+                    <div class="modal-tabs">
+                        <?php foreach($product->images as $image) { ?>
+                            <div id="<?=$image->cssId?>-medium" class="center">
+                                <div class="embeded-image <?=$image->cssId?>"></div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <ul class="tabs">
+                        <?php foreach($product->images as $image) { ?>
+                            <li class="tab col s3">
+                                <a href="#<?=$image->cssId?>-medium">
+                                    <div class="embeded-image <?=$image->cssId?> responsive-img thumbnail"></div>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>    
                 </div>
-                <ul class="tabs">
-                    <?php foreach($product->images as $image) { ?>
-                        <li class="tab col s3">
-                            <a href="#<?=$image->cssId?>-medium">
-                                <div class="embeded-image <?=$image->cssId?> responsive-img thumbnail"></div>
-                            </a>
-                        </li>
-                    <?php } ?>
-                </ul>
-            </div>
+            <?php } ?>
             
             <div class="modal-tabs">
                 <div id="<?=$product->cssId?>-overview" class="browser-default">
@@ -40,24 +42,26 @@
                     <?=$product->tech?>
                 </div>
                 <div id="<?=$product->cssId?>-images">
-                    <div class="left image-slide-show hide-on-large-only col s12">
-                        <div class="modal-tabs">
-                            <?php foreach($product->images as $image) { ?>
-                                <div id="<?=$image->cssId?>-mobile" class="center">
-                                    <div class="embeded-image <?=$image->cssId?>"></div>
-                                </div>
-                            <?php } ?>
+                    <?php if(!empty($product->images)) { ?>
+                        <div class="left image-slide-show hide-on-large-only col s12">
+                            <div class="modal-tabs">
+                                <?php foreach($product->images as $image) { ?>
+                                    <div id="<?=$image->cssId?>-mobile" class="center">
+                                        <div class="embeded-image <?=$image->cssId?>"></div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <ul class="tabs">
+                                <?php foreach($product->images as $image) { ?>
+                                    <li class="tab col s3">
+                                        <a href="#<?=$image->cssId?>-mobile">
+                                            <div class="embeded-image <?=$image->cssId?> responsive-img thumbnail"></div>
+                                        </a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
                         </div>
-                        <ul class="tabs">
-                            <?php foreach($product->images as $image) { ?>
-                                <li class="tab col s3">
-                                    <a href="#<?=$image->cssId?>-mobile">
-                                        <div class="embeded-image <?=$image->cssId?> responsive-img thumbnail"></div>
-                                    </a>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
