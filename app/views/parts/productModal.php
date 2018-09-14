@@ -10,7 +10,7 @@
             </ul>
         </div>
         <div class="col s12">
-            <?php if(!empty($product->images)) { ?>
+            <?php if(count($product->images)) { ?>
                 <div class="left hide-on-med-and-down image-slide-show">
                     <div class="modal-tabs">
                         <?php foreach($product->images as $image) { ?>
@@ -42,7 +42,7 @@
                     <?=$product->tech?>
                 </div>
                 <div id="<?=$product->cssId?>-images">
-                    <?php if(!empty($product->images)) { ?>
+                    <?php if(count($product->images)) { ?>
                         <div class="left image-slide-show hide-on-large-only col s12">
                             <div class="modal-tabs">
                                 <?php foreach($product->images as $image) { ?>
