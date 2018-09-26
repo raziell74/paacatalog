@@ -3,7 +3,7 @@
 }
 
 .parallax-container {
-  min-height: 380px;
+  min-height: 240px;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
@@ -137,7 +137,7 @@ h1.header.center, h5.header.col.s12.light {
 
 @media only screen and (max-width : 992px) {
   .parallax-container {
-    min-height: 250px;
+    min-height: 220px;
   }
   .parallax-container .section {
     position: relative;
