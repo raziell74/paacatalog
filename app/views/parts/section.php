@@ -38,10 +38,12 @@
 
 <div class="container">
     <div class="section">
-        <div class="row product-list">
-            <?php foreach($section->products as $product) {
-                $view->getPart('product', ['section' => $section, 'product' => $product]);
-            } ?>
+        <div class="row">
+            <div class="product-list">
+              <?php foreach($section->products as $product) {
+                  $view->getPart('product', ['section' => $section, 'product' => $product]);
+              } ?>
+            </div>
             <?=$view->getPart('productAddNew', ['admin_only' => true, 'section' => $section, 'product' => $new_product])?>
         </div>
     </div>

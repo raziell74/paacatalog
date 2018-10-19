@@ -1,0 +1,44 @@
+.product-sort-button {
+  position: absolute;
+  height: 100px;
+  width: 60px;
+  background: #b7b7b7;
+  top: 50%;
+  margin-top: -50px;
+  padding-top: 22px;
+  opacity: 0.1;
+  cursor: pointer;
+  color: black;
+  z-index: 9999;
+  transition: .3s ease-out;
+}
+  .product-sort-button:hover {
+    opacity: 0.8 !important;
+    background: #1247a1;
+    color: #FFF;
+  }
+
+  .product-sort-button.sort-left {
+    left: -15px;
+    padding-left: 8px;
+  }
+  
+  .product-sort-button.sort-right {
+    right: -15px;
+  }
+  
+    .product-sort-button.sort-right i.material-icons {
+      margin-left:-12px;
+    }
+    
+.product-card:hover .product-sort-button {
+  opacity: 0.4;
+}
+
+.product-card:first-child .product-sort-button.sort-left {
+  display:none;
+}
+
+.product-card:nth-last-child(2) .product-sort-button.sort-right {
+  display:none;
+}
