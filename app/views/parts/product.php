@@ -1,4 +1,4 @@
-<div id="<?=$product->cssId?>" class="col s12 m6 l4 product-card">
+<div id="<?=$product->cssId?>" class="col s12 m6 l4 product-card scale-transition">
     <div class="card">
         <div class="card-image center">
             <div class="embeded-image <?=$product->main_image->cssId?>"></div>
