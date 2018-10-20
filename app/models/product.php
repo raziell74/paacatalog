@@ -18,7 +18,7 @@ class product extends Model {
                 'id' => 0,
                 'product_id' => $this->data['id'],
                 'main_image' => 1,
-                'url' => $this->default_image
+                'url' => $this->default_image,
             ];
             $defaultImage = new \App\Models\product_image($this->container, $defaultImageData);
             $defaultImage->set('cssId', 'default-image');
@@ -87,13 +87,14 @@ class product extends Model {
     public function create() {
         $sql = "
             INSERT INTO
-                products (`section_id`, `name`, `overview`, `specs`, `tech`)
+                products (`section_id`, `name`, `overview`, `specs`, `tech`, `sort_order`)
             VALUES (
                 :section_id,
                 :name,
                 :overview,
                 :specs,
-                :tech
+                :tech,
+                :sort_order
             );
         ";
         $statement = $this->db->prepare($sql);
@@ -102,6 +103,7 @@ class product extends Model {
         $statement->bindParam(':overview', $this->get('overview'));
         $statement->bindParam(':specs', $this->get('specs'));
         $statement->bindParam(':tech', $this->get('tech'));
+        $statement->bindParam(':sort_order', $this->get('sort_order'));
         $statement->execute();
         $this->set('id', $this->db->lastInsertId());
         return $this;

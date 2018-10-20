@@ -38,12 +38,13 @@
 
 <div class="container">
     <div class="section">
-        <div class="row">
-            <div class="product-list">
+        <div class="row product-list">
+            <div>
               <?php foreach($section->products as $product) {
                   $view->getPart('product', ['section' => $section, 'product' => $product]);
               } ?>
             </div>
+            <?php $new_product->set('sort_order', count($section->products)); ?>
             <?=$view->getPart('productAddNew', ['admin_only' => true, 'section' => $section, 'product' => $new_product])?>
         </div>
     </div>

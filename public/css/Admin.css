@@ -9,7 +9,6 @@
   opacity: 0.1;
   cursor: pointer;
   color: black;
-  z-index: 9999;
   transition: .3s ease-out;
 }
   .product-sort-button:hover {

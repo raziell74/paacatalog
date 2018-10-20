@@ -49,6 +49,7 @@ class Admin  extends controller {
                       ->set('overview', "")
                       ->set('specs', "")
                       ->set('tech', "")
+                      ->set('sort_order', 0)
                       ->set('main_image', "");
         return ['section' => $empty_section, 'product' => $empty_product];
     }

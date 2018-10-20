@@ -28,36 +28,49 @@ $(document).ready(function(){
     $('.product-sort-button.sort-right').click(function(evnt){
         var product_card = $(this).parents('.product-card'),
             product_edit = product_card.next(),
-            next_product = product_edit.next();
+            next_product = product_edit.next(),
+            firstProductId = product_card.attr('data-product-id'),
+            secondProductId = next_product.attr('data-product-id');
 
-        product_card.addClass('scale-out');
-        next_product.addClass('scale-out');
-
-        setTimeout(function(){
-            product_card.insertAfter(product_edit);
-            next_product.insertBefore(product_edit);
+        $.ajax({
+            url: "/product/swap/product/order/" + firstProductId + "/" + secondProductId
+        }).done(function() {
+            product_card.addClass('scale-out');
+            next_product.addClass('scale-out');
             setTimeout(function(){
-              product_card.removeClass('scale-out');
-              next_product.removeClass('scale-out');
-            }, 100);
-        }, 500);
+                product_card.insertAfter(product_edit);
+                next_product.insertBefore(product_edit);
+                setTimeout(function(){
+                  product_card.removeClass('scale-out');
+                  next_product.removeClass('scale-out');
+                  M.toast({html: 'Product order successful updated', classes: 'green darken-1 white-text'});
+                }, 100);
+            }, 500);
+        });
     });
 
     $('.product-sort-button.sort-left').click(function(evnt){
         var product_card = $(this).parents('.product-card'),
             product_edit = product_card.prev(),
-            previous_product = product_edit.prev();
+            previous_product = product_edit.prev(),
+            firstProductId = product_card.attr('data-product-id'),
+            secondProductId = previous_product.attr('data-product-id');
 
-        product_card.addClass('scale-out');
-        previous_product.addClass('scale-out');
-
-        setTimeout(function(){
-            product_card.insertBefore(product_edit);
-            previous_product.insertAfter(product_edit);
+        $.ajax({
+            url: "/product/swap/product/order/" + firstProductId + "/" + secondProductId
+        }).done(function() {
+            product_card.addClass('scale-out');
+            product_card.addClass('scale-out');
+            previous_product.addClass('scale-out');
             setTimeout(function(){
-              product_card.removeClass('scale-out');
-              previous_product.removeClass('scale-out');
-            }, 100);
-        }, 400);
+                product_card.insertBefore(product_edit);
+                previous_product.insertAfter(product_edit);
+                setTimeout(function(){
+                  product_card.removeClass('scale-out');
+                  previous_product.removeClass('scale-out');
+                  M.toast({html: 'Product order successful updated', classes: 'green darken-1 white-text'});
+                }, 100);
+            }, 400);
+        });
     });
 });
