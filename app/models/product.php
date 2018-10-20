@@ -18,7 +18,7 @@ class product extends Model {
                 'id' => 0,
                 'product_id' => $this->data['id'],
                 'main_image' => 1,
-                'url' => $this->default_image,
+                'url' => $this->default_image
             ];
             $defaultImage = new \App\Models\product_image($this->container, $defaultImageData);
             $defaultImage->set('cssId', 'default-image');
