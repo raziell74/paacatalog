@@ -7,6 +7,7 @@
             <div class="col s12">
                 <form action="<?=$savePath?>" method="post" enctype="multipart/form-data" id="<?=$product->cssId?>-edit">
                     <input type="hidden" name="section_id" value="<?=$section->id?>">
+                    <input type="hidden" name="sort_order" value="<?=$product->sort_order?>">
                     <div class="input-field col s6">
                         <input placeholder="Product Name" id="<?=$section->cssId?>-<?=$product->cssId?>-name" name="name" type="text" class="validate" value="<?=$product->name?>">
                         <label for="<?=$section->cssId?>-<?=$product->cssId?>-name">Product Name</label>

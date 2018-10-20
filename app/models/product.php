@@ -87,13 +87,14 @@ class product extends Model {
     public function create() {
         $sql = "
             INSERT INTO
-                products (`section_id`, `name`, `overview`, `specs`, `tech`)
+                products (`section_id`, `name`, `overview`, `specs`, `tech`, `sort_order`)
             VALUES (
                 :section_id,
                 :name,
                 :overview,
                 :specs,
-                :tech
+                :tech,
+                :sort_order
             );
         ";
         $statement = $this->db->prepare($sql);
@@ -102,6 +103,7 @@ class product extends Model {
         $statement->bindParam(':overview', $this->get('overview'));
         $statement->bindParam(':specs', $this->get('specs'));
         $statement->bindParam(':tech', $this->get('tech'));
+        $statement->bindParam(':sort_order', $this->get('sort_order'));
         $statement->execute();
         $this->set('id', $this->db->lastInsertId());
         return $this;
