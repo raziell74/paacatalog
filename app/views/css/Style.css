@@ -7,6 +7,7 @@
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
+  border: 1px solid #e3e3e3;
 }
   .parallax-container .section {
     width: 100%;
@@ -133,7 +134,14 @@ h1.header.center, h5.header.col.s12.light {
     height: 90% !important;
     top: 5% !important;
     max-height: 90%;
-  }
+}
+
+.section-collapse-button {
+    position: absolute;
+    top: 50%;
+    margin-top: -28px;
+    opacity: 1 !important;
+}
 
 @media only screen and (max-width : 992px) {
   .parallax-container {

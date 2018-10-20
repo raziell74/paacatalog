@@ -9,6 +9,10 @@
                     </div>
                 <?php } ?>
                 <div class="container">
+                    <button class="btn-floating btn-large waves-effect waves-light blue dark-4 section-collapse-button" data-css-id="<?=$section->cssId?>">
+                        <i class="material-icons">remove</i>
+                    </button>
+
                     <h1 class="header center section-name"><?=$section->name?></h1>
                     <?php if($section->short_desc) { ?>
                         <div class="row center">
@@ -22,7 +26,7 @@
             <?php } ?>
         </div>
 
-        <div id="<?=$section->cssId?>-product-list-anchor" class="container">
+        <div id="<?=$section->cssId?>-product-list-anchor" class="container section-collapsable section-collapse-<?=$section->cssId?>">
             <div class="section">
                 <div class="row">
                     <div class="col s12 center section-description">
@@ -36,7 +40,7 @@
     <?=$view->getPart('sectionAdminForm', ['admin_only' => true, 'section' => $section])?>
 </div>
 
-<div class="container">
+<div class="container section-collapsable section-collapse-<?=$section->cssId?>"">
     <div class="section">
         <div class="row product-list">
             <div>
