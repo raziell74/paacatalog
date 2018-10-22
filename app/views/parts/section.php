@@ -48,7 +48,7 @@
                   $view->getPart('product', ['section' => $section, 'product' => $product]);
               } ?>
             </div>
-            <?php $new_product->set('sort_order', count($section->products)); ?>
+            <?php if($view->isAdmin) $new_product->set('sort_order', count($section->products)); ?>
             <?=$view->getPart('productAddNew', ['admin_only' => true, 'section' => $section, 'product' => $new_product])?>
         </div>
     </div>
