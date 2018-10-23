@@ -1,6 +1,6 @@
 <?php $savePath = $section->id == 0 ? '/add/section' : '/save/section/' . $section->id; ?>
 <form action="<?=$savePath?>" method="post" id="<?=$section->cssId?>-edit" enctype="multipart/form-data" class="z-depth-5 hide">
-    <div class="parallax-container valign-wrapper orange-text">
+    <div class="parallax-container valign-wrapper orange-text" style="padding: 20px 0px;">
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
