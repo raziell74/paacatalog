@@ -13,6 +13,10 @@ $(document).ready(function(){
             $(editorId).removeClass('scale-out');
         }, 100);
         $(this).parents('.product-list').find('.card').addClass('hide');
+
+        sectionMCESettings = defaultMCESettings;
+        sectionMCESettings.selector = editorId + ' textarea';
+        applyTinyMCE(sectionMCESettings);
     });
 
     $('.product-cancel-edit').click(function(evnt){
@@ -31,7 +35,6 @@ $(document).ready(function(){
             next_product = product_edit.next(),
             firstProductId = product_card.attr('data-product-id'),
             secondProductId = next_product.attr('data-product-id');
-
         $.ajax({
             url: "/product/swap/product/order/" + firstProductId + "/" + secondProductId
         }).done(function() {
@@ -55,7 +58,6 @@ $(document).ready(function(){
             previous_product = product_edit.prev(),
             firstProductId = product_card.attr('data-product-id'),
             secondProductId = previous_product.attr('data-product-id');
-
         $.ajax({
             url: "/product/swap/product/order/" + firstProductId + "/" + secondProductId
         }).done(function() {

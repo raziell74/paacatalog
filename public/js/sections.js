@@ -5,6 +5,10 @@ $(document).ready(function(){
             sectionEditors = $('#' + sectionId + '-edit');
         sectionPreview.addClass('hide');
         sectionEditors.removeClass('hide');
+
+        sectionMCESettings = defaultMCESettings;
+        sectionMCESettings.selector = '#' + sectionId + '-edit textarea';
+        applyTinyMCE(sectionMCESettings);
     });
 
     $('.section-cancel-edit').click(function(evnt){
