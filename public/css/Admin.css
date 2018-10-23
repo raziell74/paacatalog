@@ -41,3 +41,43 @@
 .product-card:nth-last-child(2) .product-sort-button.sort-right {
   display:none;
 }
+
+.section-sort-button {
+    position: absolute;
+    height: 55px;
+    width: 200px;
+    background: #b7b7b7;
+    left: 50%;
+    margin-left: -100px;
+    padding-left: 70px;
+    opacity: 0.8;
+    cursor: pointer;
+    color: black;
+    transition: .3s ease-out;
+}
+
+  .section-sort-button:hover {
+    opacity: 1 !important;
+    background: #1247a1;
+    color: #FFF;
+  }
+
+  .section-sort-button.sort-up {
+    top: -10px;
+  }
+
+  .section-sort-button.sort-down {
+    bottom: 0px;
+    height: 40px;
+  }
+    .section-sort-button.sort-down i.material-icons {
+      margin-top:-8px;
+    }
+    
+.section-content:first-child .section-sort-button.sort-up {
+  display:none;
+}
+
+.section-content:nth-last-child(2) .section-sort-button.sort-down {
+  display:none;
+}

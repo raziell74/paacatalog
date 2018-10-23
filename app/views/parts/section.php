@@ -1,4 +1,4 @@
-<div class="section-content">
+<div class="section-content" data-section-id="<?=$section->id?>">
     <div id="<?=$section->cssId?>" class="preview-display">
         <div class="parallax-container valign-wrapper orange-text">
             <div class="section no-pad-bot">
@@ -7,6 +7,13 @@
                         <button data-section="<?=$section->cssId?>" class="btn-floating btn-large waves-effect waves-light blue section-edit"><i class="material-icons">edit</i></button>
                         <button data-section="<?=$section->id?>"class="btn-floating btn-large waves-effect waves-light red section-delete"><i class="material-icons">delete</i></button>
                     </div>
+
+                    <a class="section-sort-button sort-up">
+                      <i class="medium material-icons">expand_less</i>
+                    </a>
+                    <a class="section-sort-button sort-down">
+                      <i class="medium material-icons">expand_more</i>
+                    </a>
                 <?php } ?>
                 <div class="container">
                     <button class="btn-floating btn-large waves-effect waves-light blue dark-4 section-collapse-button" data-css-id="<?=$section->cssId?>">
