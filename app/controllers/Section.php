@@ -32,6 +32,12 @@ class Section  extends controller {
         return $response->withRedirect('/');
     }
 
+    public function swapSectionOrder(Request $request, Response $response, $args) {
+        $sectionsTable = new sectionsTable($this->container);
+        $sectionsTable->swapSectionOrder($args['first_section_id'], $args['second_section_id']);
+        return $response->withRedirect('/');
+    }
+
     private function processBackgroundImage(Request $request, $data) {
         $uploaded_files = $request->getUploadedFiles();
         $background_image_file = $uploaded_files['background_image'];

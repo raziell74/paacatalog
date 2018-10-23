@@ -36,7 +36,7 @@ $(document).ready(function(){
             firstProductId = product_card.attr('data-product-id'),
             secondProductId = next_product.attr('data-product-id');
         $.ajax({
-            url: "/product/swap/product/order/" + firstProductId + "/" + secondProductId
+            url: "/product/swap/order/" + firstProductId + "/" + secondProductId
         }).done(function() {
             product_card.addClass('scale-out');
             next_product.addClass('scale-out');
@@ -59,7 +59,7 @@ $(document).ready(function(){
             firstProductId = product_card.attr('data-product-id'),
             secondProductId = previous_product.attr('data-product-id');
         $.ajax({
-            url: "/product/swap/product/order/" + secondProductId + "/" + firstProductId
+            url: "/product/swap/order/" + secondProductId + "/" + firstProductId
         }).done(function() {
             product_card.addClass('scale-out');
             product_card.addClass('scale-out');
