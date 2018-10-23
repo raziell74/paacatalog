@@ -59,7 +59,7 @@ $(document).ready(function(){
             firstProductId = product_card.attr('data-product-id'),
             secondProductId = previous_product.attr('data-product-id');
         $.ajax({
-            url: "/product/swap/product/order/" + firstProductId + "/" + secondProductId
+            url: "/product/swap/product/order/" + secondProductId + "/" + firstProductId
         }).done(function() {
             product_card.addClass('scale-out');
             product_card.addClass('scale-out');

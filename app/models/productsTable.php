@@ -55,6 +55,8 @@ class productsTable extends Model {
                 products
             WHERE
                 id IN (:first_product_id, :second_product_id)
+            ORDER BY
+              sort_order ASC
         ");
         $statement->bindParam(':first_product_id', $firstProductId);
         $statement->bindParam(':second_product_id', $secondProductId);
