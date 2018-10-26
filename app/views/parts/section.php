@@ -47,7 +47,7 @@
     <?=$view->getPart('sectionAdminForm', ['admin_only' => true, 'section' => $section])?>
 </div>
 
-<div class="container section-collapsable section-collapse-<?=$section->cssId?>"">
+<div class="container section-collapsable section-collapse-<?=$section->cssId?>">
     <div class="section">
         <div class="row product-list">
             <div>
