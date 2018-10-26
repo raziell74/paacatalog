@@ -11,7 +11,7 @@
             <div class="embeded-image default-image" style="opacity: 0"></div>
             <span class="card-title">Add Product</span>
         </div>
-        <div class="card-action">
+        <div class="card-action" style="height: 69px;">
             <a style="opacity:0;" class="btn-floating btn-large waves-effect waves-light blue product-edit modal-trigger" href="#new-product-modal"><i class="material-icons">add</i></a>
         </div>
     </div>

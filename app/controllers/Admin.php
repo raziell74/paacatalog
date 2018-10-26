@@ -9,11 +9,13 @@ use App\Helpers\viewHelper;
 class Admin  extends controller {
     public function home(Request $request, Response $response) {
         $sections = new sectionsTable($this->container);
+        $allSections = $sections->getAll();
         $placeholders = $this->getPlaceholderObjects();
+        $placeholders['section']->set('sort_order', count($allSections));
         $footer_text_table = new footerTextTable($this->container);
         $vars = [
             'view' => new viewHelper(true),
-            'sections' => $sections->getAll(),
+            'sections' => $allSections,
             'new_section' => $placeholders['section'],
             'new_product' => $placeholders['product'],
             'footer_text' => $footer_text_table->getFooterText()
@@ -41,6 +43,7 @@ class Admin  extends controller {
                       ->set('name', "")
                       ->set('short_desc', "")
                       ->set('background_image', "")
+                      ->set('sort_order', 0)
                       ->set('description', "");
         $empty_product = new \App\Models\product($this->container);
         $empty_product->set('id', 0)
@@ -49,6 +52,7 @@ class Admin  extends controller {
                       ->set('overview', "")
                       ->set('specs', "")
                       ->set('tech', "")
+                      ->set('sort_order', 0)
                       ->set('main_image', "");
         return ['section' => $empty_section, 'product' => $empty_product];
     }

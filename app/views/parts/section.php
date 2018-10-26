@@ -1,4 +1,4 @@
-<div class="section-content">
+<div class="section-content" data-section-id="<?=$section->id?>">
     <div id="<?=$section->cssId?>" class="preview-display">
         <div class="parallax-container valign-wrapper orange-text">
             <div class="section no-pad-bot">
@@ -7,8 +7,19 @@
                         <button data-section="<?=$section->cssId?>" class="btn-floating btn-large waves-effect waves-light blue section-edit"><i class="material-icons">edit</i></button>
                         <button data-section="<?=$section->id?>"class="btn-floating btn-large waves-effect waves-light red section-delete"><i class="material-icons">delete</i></button>
                     </div>
+
+                    <a class="section-sort-button sort-up">
+                      <i class="medium material-icons">expand_less</i>
+                    </a>
+                    <a class="section-sort-button sort-down">
+                      <i class="medium material-icons">expand_more</i>
+                    </a>
                 <?php } ?>
                 <div class="container">
+                    <button class="btn-floating btn-large waves-effect waves-light blue dark-4 section-collapse-button" data-css-id="<?=$section->cssId?>">
+                        <i class="material-icons remove">-</i>
+                    </button>
+
                     <h1 class="header center section-name"><?=$section->name?></h1>
                     <?php if($section->short_desc) { ?>
                         <div class="row center">
@@ -22,7 +33,7 @@
             <?php } ?>
         </div>
 
-        <div id="<?=$section->cssId?>-product-list-anchor" class="container">
+        <div id="<?=$section->cssId?>-product-list-anchor" class="container section-collapsable section-collapse-<?=$section->cssId?>">
             <div class="section">
                 <div class="row">
                     <div class="col s12 center section-description">
@@ -36,12 +47,15 @@
     <?=$view->getPart('sectionAdminForm', ['admin_only' => true, 'section' => $section])?>
 </div>
 
-<div class="container">
+<div class="container section-collapsable section-collapse-<?=$section->cssId?>"">
     <div class="section">
         <div class="row product-list">
-            <?php foreach($section->products as $product) {
-                $view->getPart('product', ['section' => $section, 'product' => $product]);
-            } ?>
+            <div>
+              <?php foreach($section->products as $product) {
+                  $view->getPart('product', ['section' => $section, 'product' => $product]);
+              } ?>
+            </div>
+            <?php if($view->isAdmin) $new_product->set('sort_order', count($section->products)); ?>
             <?=$view->getPart('productAddNew', ['admin_only' => true, 'section' => $section, 'product' => $new_product])?>
         </div>
     </div>

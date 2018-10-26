@@ -47,6 +47,12 @@ class Product  extends controller {
         return $response->withRedirect('/');
     }
 
+    public function swapProductOrder(Request $request, Response $response, $args) {
+        $productsTable = new productsTable($this->container);
+        $productsTable->swapProductOrder($args['first_product_id'], $args['second_product_id']);
+        return $response->withRedirect('/');
+    }
+
     private function processImages(Request $request, $product) {
         $uploaded_files = $request->getUploadedFiles();
         if(empty($uploaded_files)) return;

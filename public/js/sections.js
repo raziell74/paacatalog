@@ -5,6 +5,10 @@ $(document).ready(function(){
             sectionEditors = $('#' + sectionId + '-edit');
         sectionPreview.addClass('hide');
         sectionEditors.removeClass('hide');
+
+        sectionMCESettings = defaultMCESettings;
+        sectionMCESettings.selector = '#' + sectionId + '-edit textarea';
+        applyTinyMCE(sectionMCESettings);
     });
 
     $('.section-cancel-edit').click(function(evnt){
@@ -20,6 +24,22 @@ $(document).ready(function(){
         if(confirm("This will permanently delete this section and all products listed under this section. \n\n Are you sure you want to proceed?")) {
             window.location.href = "/delete/section/" + sectionId;
         }
+    });
+
+    $('.section-sort-button.sort-down').click(function(evnt){
+        var section = $(this).parents('.section-content'),
+            next_section = section.next().next(),
+            firstSectionId = section.attr('data-section-id'),
+            secondProductId = next_section.attr('data-section-id');
+        window.location.href = "/section/swap/order/" + firstSectionId + "/" + secondProductId
+    });
+
+    $('.section-sort-button.sort-up').click(function(evnt){
+        var section = $(this).parents('.section-content'),
+            previous_section = section.prev().prev(),
+            firstSectionId = section.attr('data-section-id'),
+            secondProductId = previous_section.attr('data-section-id');
+        window.location.href = "/section/swap/order/" + secondProductId + "/" + firstSectionId
     });
 
     $('.footer-edit').click(function(evnt){

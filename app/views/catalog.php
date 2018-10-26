@@ -16,12 +16,14 @@
         <!-- Top Navigation -->
         <?=$view->getPart('nav', ['sections' => $sections])?>
 
-        <!-- Display each section -->
-        <?php
-            foreach($sections as $section) {
-                $view->getPart('section',['section' => $section, 'new_product' => $new_product]);
-            }
-        ?>
+        <div class="sections">
+          <!-- Display each section -->
+          <?php
+              foreach($sections as $section) {
+                  $view->getPart('section',['section' => $section, 'new_product' => $new_product]);
+              }
+          ?>
+        </div>
 
         <!-- Display add new section -->
         <?=$view->getPart('sectionAddNew',['admin_only' => true, 'new_section' => $new_section])?>
@@ -32,6 +34,7 @@
         <!-- Dynamic javascript (prints minified version if not in admin) -->
         <?=$view->getJS('jquery-2.1.1', true)?>
         <?=$view->getJS('materialize', true)?>
+        <?=$view->getJS('polyfill', true)?>
         <?=$view->getJS('Initialize')?>
 
         <?=$view->getPart('adminJavaScriptLinks', ['admin_only' => true], 'html')?>

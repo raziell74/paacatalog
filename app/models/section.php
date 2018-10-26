@@ -71,12 +71,13 @@ class section extends Model {
     public function create() {
         $sql = "
             INSERT INTO
-                sections (`name`, `short_desc`, `description`, `background_image`)
+                sections (`name`, `short_desc`, `description`, `background_image`, `sort_order`)
             VALUES (
                 :name,
                 :short_desc,
                 :description,
-                :background_image
+                :background_image,
+                :sort_order
             );
         ";
         $statement = $this->db->prepare($sql);
@@ -84,6 +85,7 @@ class section extends Model {
         $statement->bindParam(':short_desc', $this->get('short_desc'));
         $statement->bindParam(':description', $this->get('description'));
         $statement->bindParam(':background_image', $this->get('background_image'));
+        $statement->bindParam(':sort_order', $this->get('sort_order'));
         $statement->execute();
         $this->set('id', $this->db->lastInsertId());
         return $this;
