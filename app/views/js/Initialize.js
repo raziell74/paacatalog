@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.sidenav').sideNav();
+    $('.sidenav').sidenav();
     $('.parallax').parallax();
     $('.modal').modal();
     $('.tabs').tabs();
