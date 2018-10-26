@@ -143,6 +143,11 @@ h1.header.center, h5.header.col.s12.light {
     opacity: 1 !important;
 }
 
+.product-details-button {
+  position: absolute;
+  right: 15px;
+}
+
 @media only screen and (max-width : 992px) {
   .parallax-container {
     min-height: 220px;
@@ -159,6 +164,18 @@ h1.header.center, h5.header.col.s12.light {
     height: 98% !important;
     top: 1% !important;
   }
+
+  .section-sort-button.sort-up {
+    top: -45px;
+  }
+
+  .section-sort-button.sort-down {
+    bottom: -35px;
+  }
+
+  .section-content:first-child .section-sort-button.sort-down {
+    bottom: -5px;
+  }
 }
 
 @media only screen and (max-width : 600px) {
@@ -172,6 +189,14 @@ h1.header.center, h5.header.col.s12.light {
 
   #index-banner .section {
     top: 0;
+  }
+
+  .section-sort-button.sort-up {
+    top: -20px;
+  }
+
+  .section-sort-button.sort-down {
+    bottom: -10px;
   }
 }
 

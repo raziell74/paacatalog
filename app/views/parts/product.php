@@ -18,7 +18,7 @@
         </div>
         <div class="card-action">
             <span class="card-title"><?=$product->name?></span>
-            <a class="btn-large waves-effect waves-light blue darken-4 modal-trigger right" href="#<?=$product->cssId?>-modal" style="margin-top: -10px;">Check It Out</a>
+            <a class="btn-large waves-effect waves-light blue darken-4 modal-trigger product-details-button" href="#<?=$product->cssId?>-modal" style="margin-top: -10px;">Check It Out</a>
             <?=$view->getPart('productModal', ['product' => $product])?>
         </div>
     </div>
