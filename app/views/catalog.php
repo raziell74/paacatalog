@@ -34,6 +34,7 @@
         <!-- Dynamic javascript (prints minified version if not in admin) -->
         <?=$view->getJS('jquery-2.1.1', true)?>
         <?=$view->getJS('materialize', true)?>
+        <?=$view->getJS('polyfill', true)?>
         <?=$view->getJS('Initialize')?>
 
         <?=$view->getPart('adminJavaScriptLinks', ['admin_only' => true], 'html')?>
