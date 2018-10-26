@@ -143,6 +143,17 @@ h1.header.center, h5.header.col.s12.light {
     opacity: 1 !important;
 }
 
+.section-collapse-button .material-icons.expand {
+  font-size: 40px;
+  line-height: 42px !important;
+  font-weight: bold;
+}
+
+.section-collapse-button .material-icons.remove {
+  font-size: 50px;
+  line-height: 30px !important;
+}
+
 .product-details-button {
   position: absolute;
   right: 15px;

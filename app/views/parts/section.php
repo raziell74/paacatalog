@@ -17,7 +17,7 @@
                 <?php } ?>
                 <div class="container">
                     <button class="btn-floating btn-large waves-effect waves-light blue dark-4 section-collapse-button" data-css-id="<?=$section->cssId?>">
-                        <i class="material-icons">remove</i>
+                        <i class="material-icons remove">-</i>
                     </button>
 
                     <h1 class="header center section-name"><?=$section->name?></h1>

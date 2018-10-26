@@ -11,10 +11,10 @@ $(document).ready(function(){
 
         self.toggleClass('collapsed');
         if(self.hasClass('collapsed')) {
-          self.find('i').html('add');
+          self.find('i').removeClass('remove').addClass('expand').html('+');
           sectionCollapsables.addClass('hide');
         } else {
-          self.find('i').html('remove');
+          self.find('i').removeClass('expand').addClass('remove').html('-');
           sectionCollapsables.removeClass('hide');
         }
     });
