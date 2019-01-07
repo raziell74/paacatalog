@@ -13,6 +13,15 @@
     width: 100%;
   }
 
+  .parallax-container .parallax {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#187acf+0,19a8ec+100 */
+    background: #187acf; /* Old browsers */
+    background: -moz-linear-gradient(top, #187acf 0%, #19a8ec 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #187acf 0%,#19a8ec 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #187acf 0%,#19a8ec 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#187acf', endColorstr='#19a8ec',GradientType=0 ); /* IE6-9 */
+  }
+
 #index-banner {
   min-height: 215px;
 }

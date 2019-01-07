@@ -28,9 +28,11 @@
                     <?php } ?>
                 </div>
             </div>
+            <div class="parallax">
             <?php if($section->background_image) { ?>
-                <div class="parallax"><img class="section-background-image" src="<?=$view->embedImage($section->background_image)?>" alt="Unsplashed background img 2"></div>
+                <img class="section-background-image" src="<?=$view->embedImage($section->background_image)?>" alt="Unsplashed background img 2">
             <?php } ?>
+            </div>
         </div>
 
         <div id="<?=$section->cssId?>-product-list-anchor" class="container section-collapsable section-collapse-<?=$section->cssId?>">
