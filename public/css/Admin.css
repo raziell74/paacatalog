@@ -50,11 +50,15 @@
     left: 50%;
     margin-left: -100px;
     padding-left: 70px;
-    opacity: 0.8;
+    opacity: 0.2;
     cursor: pointer;
     color: black;
     transition: .3s ease-out;
 }
+
+  .parallax-container:hover .section-sort-button {
+    opacity: 0.8;
+  }
 
   .section-sort-button:hover {
     opacity: 1 !important;
